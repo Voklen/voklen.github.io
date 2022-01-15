@@ -1,0 +1,223 @@
+@font-face {
+  font-family: Bodoni;
+  src: url("/fonts/BodoniModa[opsz\,wght].ttf") format("truetype")
+}
+
+
+:root {
+  --main-background:#f0f0f3;
+  --card-background:#e0e0e0;
+  --light-shadow:#d6d6d6;
+  --dark-shadow:#979189;
+  --text-high:#15163D;
+  --theme-animation-duration: 5s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  background-color: aqua;
+
+  color: var(--text-high);
+  animation-name: none;
+  animation-duration: var(--theme-animation-duration);
+  animation-fill-mode: forwards;
+}
+
+/* @keyframes fade_background {
+  from {
+    background-color: var(--main-background);
+  }
+  to {
+    background-color: #1b1e27;
+  }
+}
+
+@property fade_background_var {
+  from {
+    --main-background: #f0f0f3;
+  }
+  to {
+    --main-background: #1b1e27;
+  }
+} */
+
+main {
+  background-color: var(--main-background);
+  width: 100%;
+  min-height: 100%;
+}
+
+h1 {
+  font-family: Bodoni;
+  font-variation-settings: "opsz" 25;
+  color: #5f5f56;
+}
+
+h2, h3, a, p, ul {
+  margin: auto;
+  text-align: center;
+  list-style-type: none;
+  padding: 4%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.small_text {
+  color: #5f5f56;
+  font-size: 50%;
+}
+
+.column {
+  width: 33%;
+  float: left;
+}
+
+.box {
+  /* Positioning */
+  height: fit-content;
+  margin: 2%;
+  margin-top: 5%;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  /* Visuals */
+  border-radius: 45px;
+  background: var(--card-background);
+  box-shadow: 18px 18px 40px var(--dark-shadow), -18px -18px 40px var(--light-shadow);
+}
+
+.language {
+  /* Positioning */
+  float: left;
+  width: 30%;
+  padding: 5%;
+  margin: 5%;
+  /* Visuals */
+  border-radius: 16%;
+  background: var(--card-background);
+  box-shadow: inset 5px 5px 10px var(--dark-shadow), inset -5px -5px 10px var(--light-shadow);
+}
+
+/* The animation code */
+@keyframes rotating_logo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#rust-logo-foreground {
+  animation-name: rotating_logo;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#rust-logo-background {
+  background-image: url("rust-logo-center.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* .box:hover {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+} */
+
+.circle {
+  /* Positioning */
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Visuals */
+  background-color: var(--card-background);
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+}
+
+.circle:hover {
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+}
+
+/* Slider */
+
+/* The switch - the box around the slider */
+.switch {
+  --slide-width: 160px;
+  --slide-hight: 70px;
+  --ball-diamiter: 52px;
+  --ball-insert: calc((var(--slide-hight) - var(--ball-diamiter))/2);
+  position: relative;
+  display: inline-block;
+  width: var(--slide-width);
+  height: var(--slide-hight);
+}
+
+.switch input {display: none;} /* Hide default HTML checkbox */
+
+/* The slider */
+.slider {
+  /* Positioning */
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  /* Visuals */
+  background-image: url("day.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150%;
+  border-radius: var(--slide-hight);
+  box-shadow: inset 2px 2px 4px var(--dark-shadow);
+  /* Background transitions not implemented in Firefox yet */
+  /* 
+  transition: background 0.5s;
+  -moz-transition: background 0.5s; */
+}
+
+.slider:before {
+  /* Positioning */
+  position: absolute;
+  content: "";
+  height: var(--ball-diamiter);
+  width: var(--ball-diamiter);
+  inset: var(--ball-insert);
+  /* Visuals */
+  background-color: #e2e239;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px var(--dark-shadow);
+}
+
+/* Background transitions not implemented in Firefox yet */
+/* When checked */
+input:checked + .slider { 
+  background-image: url("night.svg"); }
+
+input:checked + .slider::before { 
+background-color: #ccd1e9; }
+
+/* When in focus */
+input:focus + .slider { box-shadow: 0 0 1px #2196f3; }
+
+input:checked + .slider:before {
+  transform: translateX(calc(
+    var(--slide-width)
+    - var(--ball-diamiter)
+    - (2 * var(--ball-insert))
+    ));}
