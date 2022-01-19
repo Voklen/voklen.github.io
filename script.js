@@ -1,3 +1,4 @@
+/* LibreJS: script accepted. */
 /*    
   @licstart  The following is the entire license notice for the 
 	JavaScript code in this page.
@@ -23,6 +24,7 @@
 	for the JavaScript code in this page.
 */
 
+const FRAMERATE = 120
 var r = document.querySelector(":root");
 
 // Thanks to Matt DesLauriers for this beautiful lerp function
@@ -39,7 +41,6 @@ function to_hex(r, g, b) {
 }
 
 function fadeColour(css_var, target, elem) {
-  let id = null;
   let lerp_value = 0;
   original = getComputedStyle(document.documentElement).getPropertyValue(css_var);
   // Get rgb values and convert hex string to int with +
@@ -52,10 +53,11 @@ function fadeColour(css_var, target, elem) {
 
   // Set up animation
   clearInterval(id);
-  id = setInterval(frame, 5);
+  let id = setInterval(frame);
+  let anim_duration = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--theme-animation-duration").slice(0, -1));
 
   function frame() { // Function frame() run every interval
-    if (lerp_value > 0.9999) { // If done (> because it's a float)
+    if (lerp_value > 0.99999) { // If done (> because it's a float)
       clearInterval(id);
       r.style.setProperty(css_var, target);
     } else { // Iterate
@@ -64,7 +66,7 @@ function fadeColour(css_var, target, elem) {
         lerp(orig_g, target_g, lerp_value), // Lerp the green value
         lerp(orig_b, target_b, lerp_value)  // Lerp the blue value
         ));
-      lerp_value += 0.01;
+      lerp_value += (1/FRAMERATE)/anim_duration;
     }
   }
 } 

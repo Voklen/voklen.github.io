@@ -10,20 +10,18 @@
   --light-shadow:#d6d6d6;
   --dark-shadow:#979189;
   --text-high:#15163D;
-  --theme-animation-duration: 5s;
+  --theme-animation-duration: 2s;
 }
 
 body {
+  /* Positioning */
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
+  /* Visuals */
   background-color: aqua;
-
   color: var(--text-high);
-  animation-name: none;
-  animation-duration: var(--theme-animation-duration);
-  animation-fill-mode: forwards;
 }
 
 /* @keyframes fade_background {
@@ -199,7 +197,7 @@ h2, h3, a, p, ul {
   inset: var(--ball-insert);
   /* Visuals */
   background-color: #e2e239;
-  transition: 0.4s;
+  transition-duration: var(--theme-animation-duration);
   border-radius: 50%;
   box-shadow: 2px 2px 2px var(--dark-shadow);
 }
