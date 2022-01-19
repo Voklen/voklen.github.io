@@ -52,7 +52,6 @@ function fadeColour(css_var, target, elem) {
   let target_b = +("0x" + target[5] + target[6]);
 
   // Set up animation
-  clearInterval(id);
   let id = setInterval(frame);
   let anim_duration = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--theme-animation-duration").slice(0, -1));
 
