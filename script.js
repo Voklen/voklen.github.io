@@ -3,7 +3,7 @@
   @licstart  The following is the entire license notice for the 
 	JavaScript code in this page.
 
-	Copyright (C) 2021  Александр Горичев
+	Copyright (C) 2021 Александр Горичев
 
 	The JavaScript code in this page is free software: you can
 	redistribute it and/or modify it under the terms of the GNU
@@ -72,6 +72,7 @@ function fadeColour(css_var, target, elem) {
 
 function switchTheme() {
   var maini = document.getElementsByTagName("main")[0];
+  var rust_logo = document.getElementById("rust-logo-background");
   
   if (document.getElementById("switch-checkbox").checked) {
     // Dark mode
@@ -80,6 +81,7 @@ function switchTheme() {
     fadeColour("--light-shadow", "#d34ccc");
     fadeColour("--dark-shadow", "#3eb3bb");
     fadeColour("--text-high", "#dad7d6");
+    rust_logo.style.filter ="invert(100%)";
   } else {
     // Light mode
     fadeColour("--main-background", "#f0f0f3");
@@ -87,5 +89,6 @@ function switchTheme() {
     fadeColour("--light-shadow", "#d6d6d6");
     fadeColour("--dark-shadow", "#979189");
     fadeColour("--text-high", "#15163D");
+    rust_logo.style.filter ="invert(0%)";
   }
 }
