@@ -18,9 +18,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  display: flex;
   /* Visuals */
-  background-color: aqua;
+  background-color: var(--main-background);
   color: var(--text-high);
 }
 
@@ -43,9 +42,13 @@ body {
 } */
 
 main {
-  background-color: var(--main-background);
   width: 100%;
   min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Will eventually remove the column and switch to 
+  grid-template-rows: masonry; 
+  when browsers support it*/
 }
 
 h1 {
@@ -65,11 +68,6 @@ h2, h3, a, p, ul {
 .small_text {
   color: #5f5f56;
   font-size: 50%;
-}
-
-.column {
-  width: 33%;
-  float: left;
 }
 
 .box {
