@@ -1,112 +1,132 @@
 <!DOCTYPE html>
 <head>
-  <title>Alex Gorichev</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
-  <meta charset="UTF-8" />
+	<title>Alex Gorichev</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="script.js"></script>
+	<meta charset="UTF-8" />
 </head>
 <html>
-<body>
-  <h1>Welcome to my website</h1>
-  <p>This is temporary text</p>
-<main>
-  <!-- First column -->
-  <div>
-    <div class="box">
-      <h2>About me</h2>
-      <p>Hi, I'm Alex Gorichev. I make programs, games and websites and just generally love to code.</p>
-    </div>
-    <!-- Cube timer -->
-    <div class="box">
-      <h2>Cube timer</h2>
-      <div class="circle">
-        <p>1:00</p>
-      </div>
-      <p>Times:</p>
-      <a href="index.html?emoji=👋">Emoji url test</a>
-    </div>
-    <!-- Favorite programing languages -->
-    <div class="box">
-      <h2>Favorite languages</h2>
-      <div>
-        <div class="language">
-          <h3>Rust</h3>
-          <div id="rust-logo-background">
-            <img
-              src="rust-logo-ring.svg"
-              alt="Rust Logo"
-              class="logo"
-              id="rust-logo-foreground"
-            />
-          </div>
-          <p class="small_text">Logo by Mozilla under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a> Animation by me</p>
-        </div>
-        <div class="language">
-          <h3>Python</h3>
-          <div>
-            <img
-              src="python-logo.svg"
-              alt="Python Logo"
-              class="logo"
-            />
-          </div>
-          <p class="small_text">Logo by Python Software Foundation under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
+	<body>
+		<h1>Welcome to my website</h1>
+		<main>
+			<!-- First column -->
+			<div>
+				<div class="box">
+					<h2>About me</h2>
+					<p>
+						Hi, I'm Alex Gorichev. I make programs, games and websites and just
+						generally love to code.
+					</p>
+				</div>
+				<!-- Cube timer -->
+				<div class="box">
+					<h2>Cube timer</h2>
+					<div class="circle">
+						<p>1:00</p>
+					</div>
+					<p>Times:</p>
+					<a href="index.html?emoji=👋">Emoji url test</a>
+				</div>
+				<!-- Favorite programing languages -->
+				<div class="box">
+					<h2>Favorite languages</h2>
+					<div>
+						<div class="language">
+							<h3>Rust</h3>
+							<div id="rust-logo-background">
+								<img
+									src="rust-logo-ring.svg"
+									alt="Rust Logo"
+									class="logo"
+									id="rust-logo-foreground"
+								/>
+							</div>
+							<p class="small_text">
+								Logo by Mozilla under
+								<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+								Animation by me
+							</p>
+						</div>
+						<div class="language">
+							<h3>Python</h3>
+							<div>
+								<img src="python-logo.svg" alt="Python Logo" class="logo" />
+							</div>
+							<p class="small_text">
+								Logo by Python Software Foundation under
+								<a href="https://creativecommons.org/publicdomain/zero/1.0/"
+									>CC0</a
+								>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-  <!-- Second column -->
-  <div>
-    <div class="box">
-      <h2>Site Settings</h2>
-      <label class="switch">
-        <input type="checkbox" onclick="switchTheme()" id="switch-checkbox">
-        <span class="slider"></span>
-      </label>
-    </div>
-    <div class="box">
-      <h2>Blog</h2>
-      <ul>
-        <li><a href="blog/How to create an alias in a Unix shell.html">How to: Create a command-line alias</a></li>
-      </ul>
-    </div>
-    <div class="box">
-      <h2>Site Properties</h2>
-      <p>LibreJS compatible</p>
-    </div>
-  </div>
+			<!-- Second column -->
+			<div>
+				<div class="box">
+					<h2>Site Settings</h2>
+					<label class="switch">
+						<input
+							type="checkbox"
+							onclick="switchTheme()"
+							id="switch-checkbox"
+						/>
+						<span class="slider"></span>
+					</label>
+				</div>
+				<div class="box">
+					<h2>Blog</h2>
+					<ul>
+						<li>
+							<a href="blog/How to create an alias in a Unix shell.html"
+								>How to: Create a command-line alias</a
+							>
+						</li>
+					</ul>
+				</div>
+				<div class="box">
+					<h2>Site Properties</h2>
+					<p>LibreJS compatible</p>
+				</div>
+			</div>
 
-  <!-- Third column -->
-  <div>
-    <div class="box">
-      <h2>Favorite libaries & frameworks</h2>
-      <div>
-        <div class="language">
-          <h3>Godot</h3>
-          <img src="godot.svg" alt="Godot logo" class="logo">
-          <p class="small_text">Logo by Godot under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a> Animation by me</p>
-        </div>
-        <div class="language">
-          <h3>Flutter</h3>
-          <div>
-            <img
-              src="flutter.svg"
-              alt="Flutter logo"
-              class="logo"
-            />
-          </div>
-          <p class="small_text">Logo by Google under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="box">
-      <h2>Contact me</h2>
-      <ul>
-        <li>Alex.Gorichev@protonmail.com</li>
-      </ul>
-    </div>
-  </div>
-</main>
-</body>
+			<!-- Third column -->
+			<div>
+				<div class="box">
+					<h2>Favorite libaries & frameworks</h2>
+					<div>
+						<div class="language">
+							<h3>Godot</h3>
+							<img src="godot.svg" alt="Godot logo" class="logo" />
+							<p class="small_text">
+								Logo by Godot under
+								<a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>
+								Animation by me
+							</p>
+						</div>
+						<div class="language">
+							<h3>Flutter</h3>
+							<div>
+								<img src="flutter.svg" alt="Flutter logo" class="logo" />
+							</div>
+							<p class="small_text">
+								Logo by Google under
+								<a href="https://creativecommons.org/publicdomain/zero/1.0/"
+									>CC0</a
+								>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="box">
+					<h2>Contact me</h2>
+					<ul>
+						<li>Alex.Gorichev@protonmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>
