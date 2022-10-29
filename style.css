@@ -124,6 +124,10 @@ ul {
 	background-size: contain;
 }
 
+#contact-list li a {
+	padding: 0;
+}
+
 .circle {
 	/* Positioning */
 	height: 100px;
