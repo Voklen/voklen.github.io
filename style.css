@@ -39,11 +39,7 @@ h1 {
 	color: #5f5f56;
 }
 
-h2,
-h3,
-a,
-p,
-ul {
+h2, h3, a, p, ul {
 	margin: auto;
 	text-align: center;
 	list-style-type: none;
@@ -165,7 +161,7 @@ ul {
 
 .switch input {
 	display: none;
-} /* Hide default HTML checkbox */
+}
 
 /* The slider */
 .slider {
@@ -199,21 +195,19 @@ ul {
 }
 
 /* When checked */
-input:checked + .slider {
+input:checked+.slider {
 	background-image: url("night.svg");
 }
 
-input:checked + .slider::before {
+input:checked+.slider::before {
 	background-color: #ccd1e9;
 }
 
 /* When in focus */
-input:focus + .slider {
+input:focus+.slider {
 	box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider:before {
-	transform: translateX(
-		calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert)))
-	);
+input:checked+.slider:before {
+	transform: translateX(calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert))));
 }
