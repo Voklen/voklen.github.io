@@ -72,10 +72,30 @@ function fadeColour(css_var, target, elem) {
 	}
 }
 
+function fadePercentage(css_var, target) {
+	original = getComputedStyle(document.documentElement).getPropertyValue(css_var).slice(0, -1);
+
+	let id = setInterval(frame, 1 / FRAMERATE);
+	let anim_duration = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--theme-animation-duration").slice(0, -1));
+
+	let lerp_value = 0;
+	function frame() {
+		if (lerp_value > 0.99999) {
+			clearInterval(id);
+			let as_percentage = target + "%"
+			r.style.setProperty(css_var, as_percentage);
+			return;
+		}
+		let interpolated = lerp(original, target, lerp_value)
+		let as_percentage = interpolated + "%"
+		console.log(as_percentage)
+		r.style.setProperty(css_var, as_percentage);
+		lerp_value += (1 / FRAMERATE) / anim_duration;
+	}
+}
+
 // I want to replace this with @property in the CSS when/if it is supported (hopefully)
 function switchTheme() {
-	var rust_logo = document.getElementById("rust-logo-background");
-
 	if (document.getElementById("switch-checkbox").checked) {
 		// Dark mode
 		fadeColour('--main-background', '#1b1e27')
@@ -83,7 +103,7 @@ function switchTheme() {
 		fadeColour("--light-shadow", "#d34ccc");
 		fadeColour("--dark-shadow", "#3eb3bb");
 		fadeColour("--text-high", "#dad7d6");
-		rust_logo.style.filter = "invert(100%)";
+		fadePercentage("--dark-percentage", "100");
 	} else {
 		// Light mode
 		fadeColour("--main-background", "#f0f0f3");
@@ -91,6 +111,6 @@ function switchTheme() {
 		fadeColour("--light-shadow", "#d6d6d6");
 		fadeColour("--dark-shadow", "#979189");
 		fadeColour("--text-high", "#15163D");
-		rust_logo.style.filter = "invert(0%)";
+		fadePercentage("--dark-percentage", "0");
 	}
 }

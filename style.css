@@ -9,6 +9,7 @@
 	--light-shadow: #d6d6d6;
 	--dark-shadow: #979189;
 	--text-high: #15163d;
+	--dark-percentage: 0%;
 	--theme-animation-duration: 2s;
 }
 
@@ -122,6 +123,7 @@ ul {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
+	filter: invert(var(--dark-percentage));
 }
 
 #contact-list li a {
