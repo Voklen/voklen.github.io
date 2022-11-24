@@ -49,7 +49,7 @@ function switchTheme() {
 }
 
 function fadeColour(css_var, target) {
-	const original = getProperty(css_var);
+	const original = getProperty(css_var).trim();
 	const orig_r = ("0x" + original[1] + original[2]);
 	const orig_g = ("0x" + original[3] + original[4]);
 	const orig_b = ("0x" + original[5] + original[6]);
