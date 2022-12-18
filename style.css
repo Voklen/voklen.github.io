@@ -54,7 +54,7 @@ h1 {
 	color: #5f5f56;
 }
 
-h2, h3, a, p, ul {
+h2, h3, p, ul {
 	margin: auto;
 	text-align: center;
 	list-style-type: none;
@@ -141,23 +141,20 @@ h2, h3, a, p, ul {
 	padding: 0;
 }
 
-.circle {
-	/* Positioning */
-	height: 100px;
-	width: 100px;
-	margin: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/* Visuals */
-	background-color: var(--card-background);
-	border-radius: 50%;
-	box-shadow: 5px 5px 10px var(--dark-shadow),
-		-5px -5px 10px var(--light-shadow);
+#profile-links-list {
+	margin: 0;
 }
 
-.circle:hover {
-	background: linear-gradient(145deg, #cacaca, #f0f0f0);
+#profile-links-list a {
+	text-decoration: none;
+}
+
+#profile-links-list a img {
+	width: 20%;
+}
+
+#github-logo {
+	filter: invert(var(--dark-percentage));
 }
 
 /* Slider */
