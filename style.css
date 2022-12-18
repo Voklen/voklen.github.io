@@ -33,6 +33,21 @@ main {
   when browsers support it*/
 }
 
+@media screen and (max-width : 900px) {
+	main {
+		/* This will stack the first and third columns on top of each other.
+		That's why I'll make the middle column the largest */
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+
+@media screen and (max-width : 500px) {
+	main {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
 h1 {
 	font-family: Bodoni;
 	font-variation-settings: "opsz" 25;
