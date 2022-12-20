@@ -1,6 +1,6 @@
 @font-face {
 	font-family: Bodoni;
-	src: url("/fonts/BodoniModa[opsz\,wght].ttf") format("truetype");
+	src: url("/media/fonts/BodoniModa[opsz\,wght].ttf") format("truetype");
 }
 
 :root {
@@ -130,7 +130,7 @@ h2, h3, p, ul {
 }
 
 #rust-logo-background {
-	background-image: url("rust-logo-center.svg");
+	background-image: url("media/images/rust-logo-center.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -182,7 +182,7 @@ h2, h3, p, ul {
 	cursor: pointer;
 	inset: 0;
 	/* Visuals */
-	background-image: url("day.svg");
+	background-image: url("media/images/day.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 150%;
@@ -208,7 +208,7 @@ h2, h3, p, ul {
 
 /* When checked */
 input:checked+.slider {
-	background-image: url("night.svg");
+	background-image: url("media/images/night.svg");
 }
 
 input:checked+.slider::before {
