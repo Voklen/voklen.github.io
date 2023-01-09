@@ -13,11 +13,14 @@
 	--theme-animation-duration: 2s;
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	/* Positioning */
 	margin: 0;
 	padding: 0;
-	min-height: 100vh;
 	/* Visuals */
 	background-color: var(--main-background);
 	color: var(--text-high);
