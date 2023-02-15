@@ -39,8 +39,8 @@ function switchTheme() {
 		fadePercentage("--dark-percentage", "100");
 	} else {
 		// Light mode
-		fadeColour("--main-background", "#f0f0f3");
-		fadeColour("--card-background", "#e0e0e0");
+		fadeColour("--main-background", "#f2ebeb");
+		fadeColour("--card-background", "#fff7f7");
 		fadeColour("--light-shadow", "#d6d6d6");
 		fadeColour("--dark-shadow", "#979189");
 		fadeColour("--text-high", "#15163D");

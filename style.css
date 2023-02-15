@@ -4,8 +4,8 @@
 }
 
 :root {
-	--main-background: #f0f0f3;
-	--card-background: #e0e0e0;
+	--main-background: #f2ebeb;
+	--card-background: #fff7f7;
 	--light-shadow: #d6d6d6;
 	--dark-shadow: #979189;
 	--text-high: #15163d;
@@ -78,8 +78,8 @@ h2, h3, p, ul {
 	flex-direction: column;
 	/* Visuals */
 	border-radius: 45px;
-	box-shadow: 18px 18px 40px var(--dark-shadow),
-		-18px -18px 40px var(--light-shadow);
+	box-shadow: 18px 18px 36px var(--dark-shadow),
+		-18px -18px 36px var(--light-shadow);
 	z-index: 1;
 }
 
@@ -103,8 +103,8 @@ h2, h3, p, ul {
 	/* Visuals */
 	border-radius: 16%;
 	background: var(--card-background);
-	box-shadow: inset 5px 5px 10px var(--dark-shadow),
-		inset -5px -5px 10px var(--light-shadow);
+	box-shadow: 8px 8px 16px var(--dark-shadow),
+		-8px -8px 16px var(--light-shadow);
 }
 
 /* The animation code */
@@ -122,7 +122,7 @@ h2, h3, p, ul {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
+	width: 100%;
 }
 
 #rust-logo-foreground {
