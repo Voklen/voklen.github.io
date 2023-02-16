@@ -5,7 +5,6 @@
 <head>
 	<title>Alex Gorichev</title>
 	<link rel="stylesheet" href="style.css" />
-	<script src="script.js"></script>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -73,6 +72,10 @@
 			<div class="shadow">
 				<div class="box">
 					<h1>Site Settings</h1>
+					<div class="slidecontainer">
+						<h3 id="demo"></h3>
+						<input type="range" min="1" max="1028" value="2" class="slippery" id="ya">
+					</div>
 					<label class="switch">
 						<input type="checkbox" onclick="switchTheme()" id="switch-checkbox" />
 						<span class="slider"></span>
@@ -127,5 +130,7 @@
 		</div>
 	</main>
 </body>
+
+<script src="script.js"></script>
 
 </html>

@@ -27,11 +27,27 @@
 const FRAMERATE = 120
 const r = document.querySelector(":root");
 
+var slider = document.getElementById("ya");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function () {
+	let to = (this.value / 1028);
+
+	fadeColour('--main-background', '#1b1e27', "#f2ebeb", to)
+	fadeColour("--card-background", "#181b23", "#fff7f7", to);
+	fadeColour("--light-shadow", "#d34ccc", "#d6d6d6", to);
+	fadeColour("--dark-shadow", "#3eb3bb", "#979189", to);
+	fadeColour("--text-high", "#dad7d6", "#15163D", to);
+	output.innerHTML = slider.value;
+}
+
 // I want to replace this with @property in the CSS when/if it is supported (hopefully)
 function switchTheme() {
 	if (document.getElementById("switch-checkbox").checked) {
 		// Dark mode
-		fadeColour('--main-background', '#1b1e27')
+		fadeColour('--main-background', '#1b1e27', getProperty(css_var).trim())
 		fadeColour("--card-background", "#181b23");
 		fadeColour("--light-shadow", "#d34ccc");
 		fadeColour("--dark-shadow", "#3eb3bb");
@@ -48,8 +64,7 @@ function switchTheme() {
 	}
 }
 
-function fadeColour(css_var, target) {
-	const original = getProperty(css_var).trim();
+function fadeColour(css_var, target, original, to) {
 	const orig_r = ("0x" + original[1] + original[2]);
 	const orig_g = ("0x" + original[3] + original[4]);
 	const orig_b = ("0x" + original[5] + original[6]);
@@ -57,8 +72,14 @@ function fadeColour(css_var, target) {
 	const target_g = ("0x" + target[3] + target[4]);
 	const target_b = ("0x" + target[5] + target[6]);
 
+	if (to != null) {
+		interpolate_to(to);
+		return;
+	}
 	const id = setInterval(frame, 1 / FRAMERATE);
 	const anim_duration = parseInt(getProperty("--theme-animation-duration").slice(0, -1));
+
+
 
 	let lerp_value = 0;
 	function frame() {
@@ -67,13 +88,16 @@ function fadeColour(css_var, target) {
 			r.style.setProperty(css_var, target);
 			return;
 		}
+		interpolate_to(lerp_value);
+		lerp_value += (1 / FRAMERATE) / anim_duration;
+	}
+	function interpolate_to(value) {
 		const interpolated = to_hex(
-			lerp(orig_r, target_r, lerp_value), // Lerp the red value
-			lerp(orig_g, target_g, lerp_value), // Lerp the green value
-			lerp(orig_b, target_b, lerp_value)  // Lerp the blue value
+			lerp(orig_r, target_r, value), // Lerp the red value
+			lerp(orig_g, target_g, value), // Lerp the green value
+			lerp(orig_b, target_b, value)  // Lerp the blue value
 		)
 		r.style.setProperty(css_var, interpolated);
-		lerp_value += (1 / FRAMERATE) / anim_duration;
 	}
 }
 
