@@ -53,8 +53,8 @@ main {
 
 h1 {
 	font-family: Bodoni;
-	font-variation-settings: "opsz" 25;
-	color: #5f5f56;
+	font-variation-settings: "opsz" 10;
+	text-align: center;
 }
 
 h2, h3, p, ul {
