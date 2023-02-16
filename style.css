@@ -222,28 +222,20 @@ input:checked+.slider:before {
 	transform: translateX(calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert))));
 }
 
-/* The slider itself */
 .slippery {
-	-webkit-appearance: none;
-	/* Override default CSS styles */
-	appearance: none;
+	/* Positioning */
 	width: 100%;
-	/* Full-width */
 	height: 25px;
-	/* Specified height */
+	/* Visuals */
+	appearance: none;
+	-webkit-appearance: none;
 	background: #d3d3d3;
-	/* Grey background */
 	outline: none;
-	/* Remove outline */
 	opacity: 0.7;
-	/* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: .2s;
-	/* 0.2 seconds transition on hover */
 	transition: opacity .2s;
+	-webkit-transition: .2s;
 }
 
-/* Mouse-over effects */
 .slippery:hover {
 	opacity: 1;
-	/* Fully shown on mouse-over */
 }
