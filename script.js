@@ -32,10 +32,22 @@ var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 lerpThemeTo(slider.value / 1028)
 
-slider.oninput = function () {
-	let lerp_value = (this.value / 1028);
+slider.oninput = updateTheme;
+
+function updateTheme() {
+	let lerp_value = (slider.value / 1028);
 	lerpThemeTo(lerp_value)
 	output.innerHTML = slider.value;
+}
+
+async function mouseUp() {
+	await new Promise(r => setTimeout(r, 1));
+	if (slider.value > 512) {
+		slider.value = 1028;
+	} else {
+		slider.value = 0;
+	}
+	updateTheme()
 }
 
 function lerpThemeTo(lerp_value) {
