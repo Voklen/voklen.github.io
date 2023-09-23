@@ -31,10 +31,10 @@ const r = document.querySelector(':root')
 function switchTheme() {
 	if (document.getElementById('switch-checkbox').checked) {
 		// Dark mode
-		fadeColour('--main-background', '#1b1e27')
-		fadeColour('--card-background', '#181b23')
-		fadeColour('--light-shadow', '#d34ccc')
-		fadeColour('--dark-shadow', '#3eb3bb')
+		fadeColour('--main-background', '#222225')
+		fadeColour('--card-background', '#222225')
+		fadeColour('--light-shadow', '#2c2c30')
+		fadeColour('--dark-shadow', '#18181a')
 		fadeColour('--text-high', '#dad7d6')
 		fadePercentage('--dark-percentage', '100')
 	} else {
