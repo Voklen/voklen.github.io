@@ -159,7 +159,7 @@ h2, h3, p, ul {
 
 /* The switch - the box around the slider */
 .switch {
-	--slide-width: 160px;
+	--slide-width: 156px;
 	--slide-hight: 70px;
 	--ball-diameter: 52px;
 	--ball-insert: calc((var(--slide-hight) - var(--ball-diameter)) / 2);
@@ -180,7 +180,6 @@ h2, h3, p, ul {
 	cursor: pointer;
 	inset: 0;
 	/* Visuals */
-	background-image: url("media/images/switch/day.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 150%;
@@ -188,6 +187,7 @@ h2, h3, p, ul {
 	box-shadow: inset 2px 2px 4px var(--dark-shadow);
 	/* Background transitions not implemented in Firefox yet */
 	transition: background var(--theme-animation-duration);
+	overflow: hidden;
 }
 
 .slider:before {
@@ -204,11 +204,11 @@ h2, h3, p, ul {
 	box-shadow: 2px 2px 2px var(--dark-shadow);
 }
 
-/* When checked */
-input:checked+.slider {
-	background-image: url("media/images/switch/night.svg");
+.slider > object {
+	width: 100%;
 }
 
+/* When checked */
 input:checked+.slider::before {
 	background-color: #ccd1e9;
 }

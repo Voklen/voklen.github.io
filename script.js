@@ -37,6 +37,7 @@ function switchTheme() {
 		fadeColour('--dark-shadow', '#18181a')
 		fadeColour('--text-high', '#dad7d6')
 		fadePercentage('--dark-percentage', '100')
+		triggerAnimation('dayToNight')
 	} else {
 		// Light mode
 		fadeColour('--main-background', '#f2ebeb')
@@ -45,6 +46,7 @@ function switchTheme() {
 		fadeColour('--dark-shadow', '#979189')
 		fadeColour('--text-high', '#15163D')
 		fadePercentage('--dark-percentage', '0')
+		triggerAnimation('nightToDay')
 	}
 }
 
@@ -97,6 +99,15 @@ function fadePercentage(css_var, target) {
 		const interpolated = lerp(original, target, lerp_value)
 		r.style.setProperty(css_var, interpolated + '%')
 		lerp_value += 1 / FRAMERATE / anim_duration
+	}
+}
+
+function triggerAnimation(anim_name) {
+	const slider = document.getElementById('switch-svg').contentDocument
+
+	const animation_elements = slider.getElementsByClassName(anim_name)
+	for (element of animation_elements) {
+		element.beginElement()
 	}
 }
 
