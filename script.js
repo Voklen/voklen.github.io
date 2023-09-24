@@ -26,9 +26,14 @@
 
 const FRAMERATE = 120
 const r = document.querySelector(':root')
+const anim_duration = parseInt(
+	getProperty('--theme-animation-duration').slice(0, -1)
+)
 
-function switchTheme() {
-	if (document.getElementById('switch-checkbox').checked) {
+async function switchTheme() {
+	const toggle = document.getElementById('switch-checkbox')
+	toggle.disabled = 'true'
+	if (toggle.checked) {
 		// Dark mode
 		fadeColour('--main-background', '#222225')
 		fadeColour('--card-background', '#222225')
@@ -47,6 +52,8 @@ function switchTheme() {
 		fadePercentage('--dark-percentage', '0')
 		triggerAnimation('nightToDay')
 	}
+	await sleep(anim_duration)
+	toggle.disabled = ''
 }
 
 function fadeColour(css_var, target) {
@@ -59,9 +66,6 @@ function fadeColour(css_var, target) {
 	const target_b = '0x' + target[5] + target[6]
 
 	const id = setInterval(frame, 1 / FRAMERATE)
-	const anim_duration = parseInt(
-		getProperty('--theme-animation-duration').slice(0, -1)
-	)
 
 	let lerp_value = 0
 	function frame() {
@@ -84,9 +88,6 @@ function fadePercentage(css_var, target) {
 	const original = getProperty(css_var).slice(0, -1)
 
 	const id = setInterval(frame, 1 / FRAMERATE)
-	const anim_duration = parseInt(
-		getProperty('--theme-animation-duration').slice(0, -1)
-	)
 
 	let lerp_value = 0
 	function frame() {
@@ -102,9 +103,9 @@ function fadePercentage(css_var, target) {
 }
 
 function triggerAnimation(anim_name) {
-	const slider = document.getElementById('switch-svg').contentDocument
+	const toggle = document.getElementById('switch-svg').contentDocument
 
-	const animation_elements = slider.getElementsByClassName(anim_name)
+	const animation_elements = toggle.getElementsByClassName(anim_name)
 	for (element of animation_elements) {
 		element.beginElement()
 	}
@@ -126,4 +127,12 @@ function to_hex(r, g, b) {
 
 function getProperty(property) {
 	return getComputedStyle(document.documentElement).getPropertyValue(property)
+}
+
+function sleep(s) {
+	return sleep_ms(s * 1000)
+}
+
+function sleep_ms(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms))
 }
