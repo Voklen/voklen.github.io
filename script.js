@@ -27,7 +27,6 @@
 const FRAMERATE = 120
 const r = document.querySelector(':root')
 
-// I want to replace this with @property in the CSS when/if it is supported (hopefully)
 function switchTheme() {
 	if (document.getElementById('switch-checkbox').checked) {
 		// Dark mode

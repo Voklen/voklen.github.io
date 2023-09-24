@@ -67,12 +67,12 @@ h2, h3, p, ul {
 
 .shadow {
 	/* Positioning */
-	margin: 2%;
+	margin: 4%;
 	margin-top: 5%;
 	display: flex;
 	flex-direction: column;
 	/* Visuals */
-	border-radius: 45px;
+	border-radius: 35px;
 	box-shadow: 18px 18px 36px var(--dark-shadow),
 		-18px -18px 36px var(--light-shadow);
 	z-index: 1;
@@ -84,7 +84,7 @@ h2, h3, p, ul {
 	display: flex;
 	flex-direction: column;
 	/* Visuals */
-	border-radius: 45px;
+	border-radius: 35px;
 	background: var(--card-background);
 	z-index: 2;
 }
