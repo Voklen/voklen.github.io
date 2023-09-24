@@ -59,6 +59,8 @@
          to="#0c0928"
          fill="freeze"
          dur="1s"
+		 keySplines="0.42, 0, 0.58, 1"
+		 calcMode="spline"
          begin="indefinite" />
       <animate
          class="nightToDay"
@@ -68,6 +70,8 @@
          to="#3f9cdf"
          fill="freeze"
          dur="1s"
+		 keySplines="0.42, 0, 0.58, 1"
+		 calcMode="spline"
          begin="indefinite" />
     </rect>
   </g>
@@ -86,6 +90,8 @@
        to="0 80"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
        class="nightToDay"
@@ -96,6 +102,8 @@
        to="0 0"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <circle
        style="fill:#8ec5ed;fill-opacity:1;stroke-width:2.44609;stroke-linecap:square;stroke-miterlimit:2.4"
@@ -185,6 +193,8 @@
        to="0 60"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
        class="nightToDay"
@@ -195,6 +205,8 @@
        to="0 0"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <circle
        style="fill:#c9e3fa;fill-opacity:1;stroke-width:3.65886;stroke-linecap:square;stroke-miterlimit:2.4"
@@ -289,6 +301,8 @@
        to="75"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
        class="nightToDay"
@@ -299,6 +313,8 @@
        to="0"
        fill="freeze"
        dur="1s"
+	   keySplines="0.42, 0, 0.58, 1"
+	   calcMode="spline"
        begin="indefinite" />
     <circle
        style="display:inline;fill:#ffffff;fill-opacity:0.25;stroke:none;stroke-width:3.51684;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"

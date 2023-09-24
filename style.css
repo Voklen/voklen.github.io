@@ -10,7 +10,7 @@
 	--dark-shadow: #979189;
 	--text-high: #15163d;
 	--dark-percentage: 0%;
-	--theme-animation-duration: 2s;
+	--theme-animation-duration: 1s;
 }
 
 html, body {
@@ -180,13 +180,8 @@ h2, h3, p, ul {
 	cursor: pointer;
 	inset: 0;
 	/* Visuals */
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 150%;
 	border-radius: var(--slide-hight);
 	box-shadow: inset 2px 2px 4px var(--dark-shadow);
-	/* Background transitions not implemented in Firefox yet */
-	transition: background var(--theme-animation-duration);
 	overflow: hidden;
 }
 
@@ -200,6 +195,7 @@ h2, h3, p, ul {
 	/* Visuals */
 	background-color: #e2e239;
 	transition-duration: var(--theme-animation-duration);
+	transition-timing-function: ease-in-out;
 	border-radius: 50%;
 	box-shadow: 2px 2px 2px var(--dark-shadow);
 }
