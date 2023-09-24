@@ -159,7 +159,7 @@ h2, h3, p, ul {
 
 /* The switch - the box around the slider */
 .switch {
-	--slide-width: 156px;
+	--slide-width: 140px;
 	--slide-hight: 70px;
 	--ball-diameter: 52px;
 	--ball-insert: calc((var(--slide-hight) - var(--ball-diameter)) / 2);
