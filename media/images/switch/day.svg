@@ -59,7 +59,8 @@
          to="#0c0928"
          fill="freeze"
          dur="1s"
-		 keySplines="0.42, 0, 0.58, 1"
+		 keyTimes="0; 1"
+		 keySplines="0.42 0 0.58 1"
 		 calcMode="spline"
          begin="indefinite" />
       <animate
@@ -70,7 +71,8 @@
          to="#3f9cdf"
          fill="freeze"
          dur="1s"
-		 keySplines="0.42, 0, 0.58, 1"
+		 keyTimes="0; 1"
+		 keySplines="0.42 0 0.58 1"
 		 calcMode="spline"
          begin="indefinite" />
     </rect>
@@ -90,7 +92,8 @@
        to="0 80"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
@@ -102,7 +105,8 @@
        to="0 0"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <circle
@@ -193,7 +197,8 @@
        to="0 60"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
@@ -205,7 +210,8 @@
        to="0 0"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <circle
@@ -301,7 +307,8 @@
        to="78"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <animateTransform
@@ -313,7 +320,8 @@
        to="0"
        fill="freeze"
        dur="1s"
-	   keySplines="0.42, 0, 0.58, 1"
+	   keyTimes="0; 1"
+	   keySplines="0.42 0 0.58 1"
 	   calcMode="spline"
        begin="indefinite" />
     <circle
