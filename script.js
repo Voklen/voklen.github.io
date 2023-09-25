@@ -24,7 +24,7 @@
 	for the JavaScript code in this page.
 */
 
-const FRAMERATE = 120
+const FRAMERATE = 60
 const r = document.querySelector(':root')
 const anim_duration = parseInt(
 	getProperty('--theme-animation-duration').slice(0, -1)
@@ -35,21 +35,27 @@ async function switchTheme() {
 	toggle.disabled = 'true'
 	if (toggle.checked) {
 		// Dark mode
-		fadeColour('--main-background', '#222225')
-		fadeColour('--card-background', '#222225')
-		fadeColour('--light-shadow', '#2c2c30')
-		fadeColour('--dark-shadow', '#18181a')
-		fadeColour('--text-high', '#dad7d6')
-		fadePercentage('--dark-percentage', '100')
+		let lerp_funcs = [
+			fadeColour('--main-background', '#222225'),
+			fadeColour('--card-background', '#222225'),
+			fadeColour('--light-shadow', '#2c2c30'),
+			fadeColour('--dark-shadow', '#18181a'),
+			fadeColour('--text-high', '#dad7d6'),
+			fadePercentage('--dark-percentage', '100'),
+		]
+		runLerpFuncs(lerp_funcs)
 		triggerAnimation('dayToNight')
 	} else {
 		// Light mode
-		fadeColour('--main-background', '#f2ebeb')
-		fadeColour('--card-background', '#fff7f7')
-		fadeColour('--light-shadow', '#d6d6d6')
-		fadeColour('--dark-shadow', '#979189')
-		fadeColour('--text-high', '#15163D')
-		fadePercentage('--dark-percentage', '0')
+		let lerp_funcs = [
+			fadeColour('--main-background', '#f2ebeb'),
+			fadeColour('--card-background', '#fff7f7'),
+			fadeColour('--light-shadow', '#d6d6d6'),
+			fadeColour('--dark-shadow', '#979189'),
+			fadeColour('--text-high', '#15163D'),
+			fadePercentage('--dark-percentage', '0'),
+		]
+		runLerpFuncs(lerp_funcs)
 		triggerAnimation('nightToDay')
 	}
 	await sleep(anim_duration)
@@ -65,40 +71,37 @@ function fadeColour(css_var, target) {
 	const target_g = '0x' + target[3] + target[4]
 	const target_b = '0x' + target[5] + target[6]
 
-	const id = setInterval(frame, 1 / FRAMERATE)
-
-	let lerp_value = 0
-	function frame() {
-		if (lerp_value > 0.99999) {
-			clearInterval(id)
-			r.style.setProperty(css_var, target)
-			return
-		}
+	return (lerp_value) => {
 		const interpolated = to_hex(
 			lerp(orig_r, target_r, lerp_value), // Lerp the red value
 			lerp(orig_g, target_g, lerp_value), // Lerp the green value
 			lerp(orig_b, target_b, lerp_value) // Lerp the blue value
 		)
 		r.style.setProperty(css_var, interpolated)
-		lerp_value += 1 / FRAMERATE / anim_duration
 	}
 }
 
 function fadePercentage(css_var, target) {
 	const original = getProperty(css_var).slice(0, -1)
+	return (lerp_value) => {
+		const interpolated = lerp(original, target, lerp_value)
+		r.style.setProperty(css_var, interpolated + '%')
+	}
+}
 
-	const id = setInterval(frame, 1 / FRAMERATE)
-
+function runLerpFuncs(lerp_funcs) {
+	let id = setTimeout(frame, 1000 / FRAMERATE)
 	let lerp_value = 0
 	function frame() {
 		if (lerp_value > 0.99999) {
-			clearInterval(id)
-			r.style.setProperty(css_var, target + '%')
+			clearTimeout(id)
 			return
 		}
-		const interpolated = lerp(original, target, lerp_value)
-		r.style.setProperty(css_var, interpolated + '%')
+		for (func of lerp_funcs) {
+			func(lerp_value)
+		}
 		lerp_value += 1 / FRAMERATE / anim_duration
+		id = setTimeout(frame, 1000 / FRAMERATE)
 	}
 }
 
