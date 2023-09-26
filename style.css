@@ -13,6 +13,17 @@
 	--theme-animation-duration: 1s;
 }
 
+@media (prefers-color-scheme: dark) {
+	:root {
+		--main-background: #222225;
+		--card-background: #222225;
+		--light-shadow: #2c2c30;
+		--dark-shadow: #18181a;
+		--text-high: #dad7d6;
+		--dark-percentage: 100%;
+	}
+}
+
 html,
 body {
 	height: 100%;

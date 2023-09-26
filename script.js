@@ -30,6 +30,21 @@ const anim_duration = parseInt(
 	getProperty('--theme-animation-duration').slice(0, -1)
 )
 
+const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)')
+darkThemeMq.addEventListener('Media', onThemeChange)
+addEventListener('load', onThemeChange)
+
+function onThemeChange() {
+	let isDarkMode = darkThemeMq.matches
+	if (isDarkMode) {
+		if (!document.getElementById('switch-checkbox').checked) {
+			document.getElementById('switch-checkbox').click()
+		} else {
+			endAnimation('dayToNight')
+		}
+	}
+}
+
 async function switchTheme() {
 	const toggle = document.getElementById('switch-checkbox')
 	toggle.disabled = 'true'
@@ -109,6 +124,16 @@ function triggerAnimation(anim_name) {
 	const animation_elements = toggle.getElementsByClassName(anim_name)
 	for (element of animation_elements) {
 		element.beginElement()
+	}
+}
+
+function endAnimation(anim_name) {
+	const toggle = document.getElementById('switch-svg').contentDocument
+
+	const animation_elements = toggle.getElementsByClassName(anim_name)
+	for (element of animation_elements) {
+		// This is such a bodge to set the animation to the end
+		element.beginElementAt(-0.999)
 	}
 }
 
