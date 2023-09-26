@@ -90,18 +90,16 @@ function fadePercentage(css_var, target) {
 }
 
 function runLerpFuncs(lerp_funcs) {
-	let id = setTimeout(frame, 1000 / FRAMERATE)
 	let lerp_value = 0
+	frame()
 	function frame() {
-		if (lerp_value > 0.99999) {
-			clearTimeout(id)
-			return
-		}
+		lerp_value += 1 / FRAMERATE / anim_duration
 		for (func of lerp_funcs) {
 			func(lerp_value)
 		}
-		lerp_value += 1 / FRAMERATE / anim_duration
-		id = setTimeout(frame, 1000 / FRAMERATE)
+		if (lerp_value < 0.99999) {
+			setTimeout(frame, 1000 / FRAMERATE)
+		}
 	}
 }
 
