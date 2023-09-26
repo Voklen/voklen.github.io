@@ -1,6 +1,6 @@
 @font-face {
 	font-family: Bodoni;
-	src: url("/media/fonts/BodoniModa[opsz\,wght].ttf") format("truetype");
+	src: url('/media/fonts/BodoniModa[opsz\,wght].ttf') format('truetype');
 }
 
 :root {
@@ -13,7 +13,8 @@
 	--theme-animation-duration: 1s;
 }
 
-html, body {
+html,
+body {
 	height: 100%;
 }
 
@@ -36,7 +37,7 @@ main {
   when browsers support it*/
 }
 
-@media screen and (max-width : 900px) {
+@media screen and (max-width: 900px) {
 	main {
 		/* This will stack the first and third columns on top of each other.
 		That's why I'll make the middle column the largest */
@@ -44,8 +45,7 @@ main {
 	}
 }
 
-
-@media screen and (max-width : 500px) {
+@media screen and (max-width: 500px) {
 	main {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -53,16 +53,17 @@ main {
 
 h1 {
 	font-family: Bodoni;
-	font-variation-settings: "opsz" 10;
+	font-variation-settings: 'opsz' 10;
 	text-align: center;
 }
 
+/* prettier-ignore */
 h2, h3, p, ul {
 	margin: auto;
 	text-align: center;
 	list-style-type: none;
 	padding: 4%;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .shadow {
@@ -128,7 +129,7 @@ h2, h3, p, ul {
 }
 
 #rust-logo-background {
-	background-image: url("media/images/logos/rust/center.svg");
+	background-image: url('media/images/logos/rust/center.svg');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -188,7 +189,7 @@ h2, h3, p, ul {
 .slider:before {
 	/* Positioning */
 	position: absolute;
-	content: "";
+	content: '';
 	height: var(--ball-diameter);
 	width: var(--ball-diameter);
 	inset: var(--ball-insert);
@@ -205,15 +206,17 @@ h2, h3, p, ul {
 }
 
 /* When checked */
-input:checked+.slider::before {
+input:checked + .slider::before {
 	background-color: #ccd1e9;
 }
 
 /* When in focus */
-input:focus+.slider {
+input:focus + .slider {
 	box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
-	transform: translateX(calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert))));
+input:checked + .slider:before {
+	transform: translateX(
+		calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert)))
+	);
 }
