@@ -185,6 +185,10 @@ h2, h3, p, ul {
 	display: none;
 }
 
+#switch-svg {
+	pointer-events: none;
+}
+
 /* The slider */
 .slider {
 	/* Positioning */
