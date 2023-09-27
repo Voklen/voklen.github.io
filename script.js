@@ -37,8 +37,8 @@ addEventListener('load', onThemeChange)
 function onThemeChange() {
 	let isDarkMode = darkThemeMq.matches
 	if (isDarkMode) {
-		if (!document.getElementById('switch-checkbox').checked) {
-			document.getElementById('switch-checkbox').click()
+		if (!document.getElementById('theme-toggle-checkbox').checked) {
+			document.getElementById('theme-toggle-checkbox').click()
 		} else {
 			endAnimation('dayToNight')
 		}
@@ -46,7 +46,7 @@ function onThemeChange() {
 }
 
 async function switchTheme() {
-	const toggle = document.getElementById('switch-checkbox')
+	const toggle = document.getElementById('theme-toggle-checkbox')
 	toggle.disabled = 'true'
 	if (toggle.checked) {
 		// Dark mode
@@ -119,7 +119,7 @@ function runLerpFuncs(lerp_funcs) {
 }
 
 function triggerAnimation(anim_name) {
-	const toggle = document.getElementById('switch-svg').contentDocument
+	const toggle = document.getElementById('theme-toggle-svg').contentDocument
 
 	const animation_elements = toggle.getElementsByClassName(anim_name)
 	for (element of animation_elements) {
@@ -128,7 +128,7 @@ function triggerAnimation(anim_name) {
 }
 
 function endAnimation(anim_name) {
-	const toggle = document.getElementById('switch-svg').contentDocument
+	const toggle = document.getElementById('theme-toggle-svg').contentDocument
 
 	const animation_elements = toggle.getElementsByClassName(anim_name)
 	for (element of animation_elements) {

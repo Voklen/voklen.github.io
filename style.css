@@ -167,44 +167,50 @@ h2, h3, p, ul {
 	filter: invert(var(--dark-percentage));
 }
 
-/* Slider */
+/* Theme toggle */
 
-/* The switch - the box around the slider */
-.switch {
-	--slide-width: 140px;
-	--slide-hight: 70px;
-	--ball-diameter: 52px;
-	--ball-insert: calc((var(--slide-hight) - var(--ball-diameter)) / 2);
+#theme-toggle {
+	/* Positioning */
 	position: relative;
 	display: inline-block;
 	width: var(--slide-width);
 	height: var(--slide-hight);
+	/* Interactivity */
+	cursor: pointer;
+	/* CSS variables */
+	--slide-width: 140px;
+	--slide-hight: 70px;
+	--ball-diameter: 52px;
+	--ball-insert: calc((var(--slide-hight) - var(--ball-diameter)) / 2);
 }
 
-.switch input {
-	display: none;
-}
-
-#switch-svg {
-	pointer-events: none;
-}
-
-/* The slider */
-.slider {
+/* The inner shadow of the toggle */
+#theme-toggle::before {
 	/* Positioning */
 	position: absolute;
-	cursor: pointer;
-	inset: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	/* Visuals */
 	border-radius: var(--slide-hight);
 	box-shadow: inset 2px 2px 4px var(--dark-shadow);
-	overflow: hidden;
+	content: '';
 }
 
-.slider:before {
+#theme-toggle-checkbox {
+	display: none;
+}
+
+#theme-toggle-svg {
+	width: 100%;
+	border-radius: var(--slide-hight);
+	pointer-events: none;
+}
+
+#theme-toggle-ball {
 	/* Positioning */
 	position: absolute;
-	content: '';
 	height: var(--ball-diameter);
 	width: var(--ball-diameter);
 	inset: var(--ball-insert);
@@ -214,24 +220,14 @@ h2, h3, p, ul {
 	transition-timing-function: ease-in-out;
 	border-radius: 50%;
 	box-shadow: 2px 2px 2px var(--dark-shadow);
+	content: '';
 }
 
-.slider > object {
-	width: 100%;
-}
-
-/* When checked */
-input:checked + .slider::before {
-	background-color: #ccd1e9;
-}
-
-/* When in focus */
-input:focus + .slider {
-	box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
+input:checked + #theme-toggle-ball {
+	/* Positioning */
 	transform: translateX(
 		calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert)))
 	);
+	/* Visuals */
+	background-color: #ccd1e9;
 }
