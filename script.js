@@ -26,7 +26,7 @@
 
 const FRAMERATE = 60
 const r = document.querySelector(':root')
-const anim_duration = parseInt(
+const animDuration = parseInt(
 	getProperty('--theme-animation-duration').slice(0, -1)
 )
 
@@ -50,7 +50,7 @@ async function switchTheme() {
 	toggle.disabled = 'true'
 	if (toggle.checked) {
 		// Dark mode
-		let lerp_funcs = [
+		let lerpFuncs = [
 			fadeColour('--main-background', '#222225'),
 			fadeColour('--card-background', '#222225'),
 			fadeColour('--light-shadow', '#2c2c30'),
@@ -58,11 +58,11 @@ async function switchTheme() {
 			fadeColour('--text-high', '#dad7d6'),
 			fadePercentage('--dark-percentage', '100'),
 		]
-		runLerpFuncs(lerp_funcs)
+		runLerpFuncs(lerpFuncs)
 		triggerAnimation('dayToNight')
 	} else {
 		// Light mode
-		let lerp_funcs = [
+		let lerpFuncs = [
 			fadeColour('--main-background', '#f2ebeb'),
 			fadeColour('--card-background', '#fff7f7'),
 			fadeColour('--light-shadow', '#d6d6d6'),
@@ -70,68 +70,68 @@ async function switchTheme() {
 			fadeColour('--text-high', '#15163D'),
 			fadePercentage('--dark-percentage', '0'),
 		]
-		runLerpFuncs(lerp_funcs)
+		runLerpFuncs(lerpFuncs)
 		triggerAnimation('nightToDay')
 	}
-	await sleep(anim_duration)
+	await sleep(animDuration)
 	toggle.disabled = ''
 }
 
-function fadeColour(css_var, target) {
-	const original = getProperty(css_var).trim()
-	const orig_r = '0x' + original[1] + original[2]
-	const orig_g = '0x' + original[3] + original[4]
-	const orig_b = '0x' + original[5] + original[6]
-	const target_r = '0x' + target[1] + target[2]
-	const target_g = '0x' + target[3] + target[4]
-	const target_b = '0x' + target[5] + target[6]
+function fadeColour(cssVar, target) {
+	const original = getProperty(cssVar).trim()
+	const origR = '0x' + original[1] + original[2]
+	const origG = '0x' + original[3] + original[4]
+	const origB = '0x' + original[5] + original[6]
+	const targetR = '0x' + target[1] + target[2]
+	const targetG = '0x' + target[3] + target[4]
+	const targetB = '0x' + target[5] + target[6]
 
-	return (lerp_value) => {
-		const interpolated = to_hex(
-			lerp(orig_r, target_r, lerp_value), // Lerp the red value
-			lerp(orig_g, target_g, lerp_value), // Lerp the green value
-			lerp(orig_b, target_b, lerp_value) // Lerp the blue value
+	return (lerpValue) => {
+		const interpolated = toHex(
+			lerp(origR, targetR, lerpValue), // Lerp the red value
+			lerp(origG, targetG, lerpValue), // Lerp the green value
+			lerp(origB, targetB, lerpValue) // Lerp the blue value
 		)
-		r.style.setProperty(css_var, interpolated)
+		r.style.setProperty(cssVar, interpolated)
 	}
 }
 
-function fadePercentage(css_var, target) {
-	const original = getProperty(css_var).slice(0, -1)
-	return (lerp_value) => {
-		const interpolated = lerp(original, target, lerp_value)
-		r.style.setProperty(css_var, interpolated + '%')
+function fadePercentage(cssVar, target) {
+	const original = getProperty(cssVar).slice(0, -1)
+	return (lerpValue) => {
+		const interpolated = lerp(original, target, lerpValue)
+		r.style.setProperty(cssVar, interpolated + '%')
 	}
 }
 
-function runLerpFuncs(lerp_funcs) {
-	let lerp_value = 0
+function runLerpFuncs(lerpFuncs) {
+	let lerpValue = 0
 	frame()
 	function frame() {
-		lerp_value += 1 / FRAMERATE / anim_duration
-		for (func of lerp_funcs) {
-			func(lerp_value)
+		lerpValue += 1 / FRAMERATE / animDuration
+		for (func of lerpFuncs) {
+			func(lerpValue)
 		}
-		if (lerp_value < 0.99999) {
+		if (lerpValue < 0.99999) {
 			setTimeout(frame, 1000 / FRAMERATE)
 		}
 	}
 }
 
-function triggerAnimation(anim_name) {
+function triggerAnimation(animName) {
 	const toggle = document.getElementById('theme-toggle-svg').contentDocument
 
-	const animation_elements = toggle.getElementsByClassName(anim_name)
-	for (element of animation_elements) {
+	const animationElements = toggle.getElementsByClassName(animName)
+	for (element of animationElements) {
 		element.beginElement()
 	}
 }
 
-function endAnimation(anim_name) {
+function endAnimation(animName) {
 	const toggle = document.getElementById('theme-toggle-svg').contentDocument
 
-	const animation_elements = toggle.getElementsByClassName(anim_name)
-	for (element of animation_elements) {
+	const animationElements = toggle.getElementsByClassName(animName)
+	for (element of animationElements) {
 		// This is such a bodge to set the animation to the end
 		element.beginElementAt(-0.999)
 	}
@@ -147,7 +147,7 @@ function convert(integer) {
 	return str.length == 1 ? '0' + str : str
 }
 
-function to_hex(r, g, b) {
+function toHex(r, g, b) {
 	return '#' + convert(r) + convert(g) + convert(b)
 }
 
@@ -156,9 +156,9 @@ function getProperty(property) {
 }
 
 function sleep(s) {
-	return sleep_ms(s * 1000)
+	return sleepMs(s * 1000)
 }
 
-function sleep_ms(ms) {
+function sleepMs(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms))
 }
