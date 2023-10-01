@@ -30,19 +30,26 @@ const animDuration = parseInt(
 	getProperty('--theme-animation-duration').slice(0, -1)
 )
 
+onThemeChange()
 const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)')
 darkThemeMq.addEventListener('Media', onThemeChange)
 addEventListener('load', onThemeChange)
 
 function onThemeChange() {
-	let isDarkMode = darkThemeMq.matches
-	if (isDarkMode) {
-		if (!document.getElementById('theme-toggle-checkbox').checked) {
-			document.getElementById('theme-toggle-checkbox').click()
-		} else {
-			endAnimation('dayToNight')
-		}
+	if (isDarkMode()) {
+		setDarkMode()
+		setSliderDarkMode()
+	} else {
+		setLightMode()
 	}
+}
+
+function isDarkMode() {
+	let isDarkMode = localStorage.getItem('isDarkMode') === 'true'
+	if (isDarkMode == null) {
+		isDarkMode = darkThemeMq.matches
+	}
+	return isDarkMode
 }
 
 async function switchTheme() {
@@ -50,6 +57,7 @@ async function switchTheme() {
 	toggle.disabled = 'true'
 	if (toggle.checked) {
 		// Dark mode
+		localStorage.setItem('isDarkMode', true)
 		let lerpFuncs = [
 			fadeColour('--main-background', '#222225'),
 			fadeColour('--card-background', '#222225'),
@@ -62,6 +70,7 @@ async function switchTheme() {
 		triggerAnimation('dayToNight')
 	} else {
 		// Light mode
+		localStorage.setItem('isDarkMode', false)
 		let lerpFuncs = [
 			fadeColour('--main-background', '#f2ebeb'),
 			fadeColour('--card-background', '#fff7f7'),
@@ -75,6 +84,40 @@ async function switchTheme() {
 	}
 	await sleep(animDuration)
 	toggle.disabled = ''
+	// Make sure the settings are set to _exactly_ the new colours
+	if (toggle.checked) {
+		setDarkMode()
+	} else {
+		setLightMode()
+	}
+}
+
+function setDarkMode() {
+	r.style.setProperty('--main-background', '#222225')
+	r.style.setProperty('--card-background', '#222225')
+	r.style.setProperty('--light-shadow', '#2c2c30')
+	r.style.setProperty('--dark-shadow', '#18181a')
+	r.style.setProperty('--text-high', '#dad7d6')
+	r.style.setProperty('--dark-percentage', '100%')
+}
+
+function setLightMode() {
+	r.style.setProperty('--main-background', '#f2ebeb')
+	r.style.setProperty('--card-background', '#fff7f7')
+	r.style.setProperty('--light-shadow', '#d6d6d6')
+	r.style.setProperty('--dark-shadow', '#979189')
+	r.style.setProperty('--text-high', '#15163D')
+	r.style.setProperty('--dark-percentage', '0%')
+}
+
+function setSliderDarkMode() {
+	try {
+		if (!document.getElementById('theme-toggle-checkbox').checked) {
+			document.getElementById('theme-toggle-checkbox').click()
+		} else {
+			endAnimation('dayToNight')
+		}
+	} catch {}
 }
 
 function fadeColour(cssVar, target) {
