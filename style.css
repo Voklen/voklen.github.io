@@ -62,6 +62,8 @@ main {
 	}
 }
 
+/* General */
+
 h1 {
 	font-family: Bodoni;
 	font-variation-settings: 'opsz' 10;
@@ -99,6 +101,14 @@ h2, h3, p, ul {
 	border-radius: 35px;
 	background: var(--card-background);
 	z-index: 2;
+}
+
+/* Specific to certain sections */
+
+#profile-pic {
+	width: 12em;
+	border-radius: 50%;
+	margin: auto;
 }
 
 .language {
