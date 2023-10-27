@@ -87,8 +87,8 @@ h2, h3, p, ul {
 	flex-direction: column;
 	/* Visuals */
 	border-radius: 35px;
-	box-shadow: 18px 18px 36px var(--dark-shadow),
-		-18px -18px 36px var(--light-shadow);
+	box-shadow: 8px 8px 15px var(--dark-shadow),
+		-6px -6px 18px var(--light-shadow);
 	z-index: 1;
 }
 
