@@ -79,28 +79,19 @@ h2, h3, p, ul {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.shadow {
+.box {
 	/* Positioning */
 	margin: 4%;
 	margin-top: 5%;
+	padding: 2%;
 	display: flex;
 	flex-direction: column;
 	/* Visuals */
 	border-radius: 35px;
 	box-shadow: 8px 8px 15px var(--dark-shadow),
 		-6px -6px 18px var(--light-shadow);
-	z-index: 1;
-}
-
-.box {
-	/* Positioning */
-	padding: 2%;
-	display: flex;
-	flex-direction: column;
-	/* Visuals */
-	border-radius: 35px;
-	background: var(--card-background);
 	z-index: 2;
+	background: var(--card-background);
 }
 
 /* Specific to certain sections */
@@ -120,8 +111,8 @@ h2, h3, p, ul {
 	/* Visuals */
 	border-radius: 16%;
 	background: var(--card-background);
-	box-shadow: 8px 8px 16px var(--dark-shadow),
-		-8px -8px 16px var(--light-shadow);
+	box-shadow: 2px 2px 10px var(--dark-shadow),
+		-2px -2px 20px var(--light-shadow);
 }
 
 /* The animation code */
