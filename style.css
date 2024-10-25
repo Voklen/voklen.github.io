@@ -1,27 +1,6 @@
-@font-face {
-	font-family: Bodoni;
-	src: url('/media/fonts/BodoniModa[opsz\,wght].ttf') format('truetype');
-}
-
 :root {
-	--main-background: #f2ebeb;
-	--card-background: #fff7f7;
-	--light-shadow: #d6d6d6;
-	--dark-shadow: #979189;
-	--text-high: #15163d;
-	--dark-percentage: 0%;
-	--theme-animation-duration: 1s;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--main-background: #222225;
-		--card-background: #222225;
-		--light-shadow: #2c2c30;
-		--dark-shadow: #18181a;
-		--text-high: #dad7d6;
-		--dark-percentage: 100%;
-	}
+	--main-background: #222225;
+	--text-high: #dad7d6;
 }
 
 html,
@@ -42,193 +21,54 @@ main {
 	width: 100%;
 	min-height: 100%;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	/* Will eventually remove the column and switch to 
-  grid-template-rows: masonry; 
-  when browsers support it*/
-}
-
-@media screen and (max-width: 900px) {
-	main {
-		/* This will stack the first and third columns on top of each other.
-		That's why I'll make the middle column the largest */
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media screen and (max-width: 500px) {
-	main {
-		grid-template-columns: repeat(1, 1fr);
-	}
-}
-
-/* General */
-
-h1 {
-	font-family: Bodoni;
-	font-variation-settings: 'opsz' 10;
-	text-align: center;
-}
-
-/* prettier-ignore */
-h2, h3, p, ul {
-	margin: auto;
-	text-align: center;
-	list-style-type: none;
-	padding: 4%;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.box {
-	/* Positioning */
-	margin: 4%;
-	margin-top: 5%;
-	padding: 2%;
-	display: flex;
-	flex-direction: column;
-	/* Visuals */
-	border-radius: 35px;
-	box-shadow: 8px 8px 15px var(--dark-shadow),
-		-6px -6px 18px var(--light-shadow);
-	z-index: 2;
-	background: var(--card-background);
+	grid-columns: 1fr 5fr;
 }
 
 /* Specific to certain sections */
 
-#profile-pic {
-	width: 12em;
-	border-radius: 50%;
-	margin: auto;
+#main-name-div {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+	padding: 20px;
+	/* From https://css.glass */
+	background: rgba(133, 159, 202, 0.12);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(6.3px);
+	-webkit-backdrop-filter: blur(6.3px);
+	border: 1px solid rgba(133, 159, 202, 0.2);
 }
 
-.language {
-	/* Positioning */
-	float: left;
-	width: 30%;
-	padding: 5%;
-	margin: 5%;
-	/* Visuals */
-	border-radius: 16%;
-	background: var(--card-background);
-	box-shadow: 2px 2px 10px var(--dark-shadow),
-		-2px -2px 20px var(--light-shadow);
+#main-name-div h1 {
+	font-size: 300%;
+	-webkit-animation: fadein 2s;
+	animation: fadein 2s;
 }
 
-/* The animation code */
-@keyframes rotating_logo {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-.logo {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-#rust-logo-foreground {
-	animation-name: rotating_logo;
-	animation-duration: 10s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-}
-
-#rust-logo-background {
-	background-image: url('media/images/logos/rust/center.svg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	filter: invert(var(--dark-percentage));
-}
-
-#contact-list li a {
-	padding: 0;
-}
-
-#profile-links-list {
-	margin: 0;
-}
-
-#profile-links-list a {
-	text-decoration: none;
-}
-
-#profile-links-list a img {
-	width: 20%;
-}
-
-#github-logo {
-	filter: invert(var(--dark-percentage));
-}
-
-/* Theme toggle */
-
-#theme-toggle {
-	/* Positioning */
-	position: relative;
-	display: inline-block;
-	width: var(--slide-width);
-	height: var(--slide-hight);
-	/* Interactivity */
-	cursor: pointer;
-	/* CSS variables */
-	--slide-width: 140px;
-	--slide-hight: 70px;
-	--ball-diameter: 52px;
-	--ball-insert: calc((var(--slide-hight) - var(--ball-diameter)) / 2);
-}
-
-/* The inner shadow of the toggle */
-#theme-toggle::before {
-	/* Positioning */
+.spots {
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	/* Visuals */
-	border-radius: var(--slide-hight);
-	box-shadow: inset 2px 2px 4px var(--dark-shadow);
-	content: '';
+	right: 0;
+	bottom: 0;
+	width: 100vh;
+	background-image: url('media/images/circle.svg');
+	background-repeat: repeat;
+	background-size: 10%;
+	transform: rotate3d(1,-1,0,50deg);
 }
 
-#theme-toggle-checkbox {
-	display: none;
-}
-
-#theme-toggle-svg {
-	width: 100%;
-	border-radius: var(--slide-hight);
-	pointer-events: none;
-}
-
-#theme-toggle-ball {
-	/* Positioning */
-	position: absolute;
-	height: var(--ball-diameter);
-	width: var(--ball-diameter);
-	inset: var(--ball-insert);
-	/* Visuals */
-	background-color: #e2e239;
-	transition-duration: var(--theme-animation-duration);
-	transition-timing-function: ease-in-out;
-	border-radius: 50%;
-	box-shadow: 2px 2px 2px var(--dark-shadow);
-	content: '';
-}
-
-input:checked + #theme-toggle-ball {
-	/* Positioning */
-	transform: translateX(
-		calc(var(--slide-width) - var(--ball-diameter) - (2 * var(--ball-insert)))
-	);
-	/* Visuals */
-	background-color: #ccd1e9;
+#blue-spots {
+	translate: -10px -5px;
+	filter: hue-rotate(180deg);
 }
