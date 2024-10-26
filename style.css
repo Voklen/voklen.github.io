@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Jostvf';
+	src: url('assets/fonts/Jost-VF.ttf') format('truetype');
+}
+
 :root {
 	--main-background: #222225;
 	--text-high: #dad7d6;
@@ -19,6 +24,11 @@ body {
 	/* Visuals */
 	background-color: var(--main-background);
 	color: var(--text-high);
+	font-family: Jostvf;
+}
+
+p {
+	font-size: 1.5em;
 }
 
 /* Specific to certain sections */
@@ -28,6 +38,7 @@ main {
 	top: 30%;
 	right: 10%;
 	padding: 20px;
+	width: 60ch;
 	/* From https://css.glass */
 	background: rgba(133, 159, 202, 0.12);
 	border-radius: 16px;
@@ -36,6 +47,15 @@ main {
 	-webkit-backdrop-filter: blur(6.3px);
 	border: 1px solid rgba(133, 159, 202, 0.2);
 	animation: dropin 2s;
+}
+
+@keyframes dropin {
+	from {
+		transform: translateY(-50px);
+	}
+	to {
+		transform: translateY(0);
+	}
 }
 
 main h1 {
@@ -52,13 +72,34 @@ main h1 {
 	}
 }
 
-@keyframes dropin {
-	from {
-		transform: translateY(-50px);
-	}
-	to {
-		transform: translateY(0);
-	}
+main a {
+	color: var(--text-high);
+}
+
+#sidebar {
+	position: absolute;
+	left: 50px;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+}
+
+nav a {
+	padding: 20px;
+	font-size: 2em;
+	text-decoration: none;
+	color: var(--text-high);
+}
+
+nav a img {
+	margin-right: 20px;
 }
 
 footer {
@@ -81,20 +122,20 @@ footer {
 	right: 0;
 	width: 150vh;
 	height: 150vh;
-	background-image: url('media/images/circle.svg');
+	background-image: url('assets/images/circle.svg');
 	background-repeat: repeat;
 	background-size: 7%;
-	transform: translate(50vh, -10px) rotate3d(1, -1, 0, 50deg);
+	transform: translate(50vh, -50px) rotate3d(1, -1, 0, 50deg);
 	animation: rotatein 2s;
 }
 
 @keyframes rotatein {
 	from {
-		transform: translate(50vh, -10px);
+		transform: translate(50vh, -50px);
 		opacity: 0;
 	}
 	to {
-		transform: translate(50vh, -10px) rotate3d(1, -1, 0, 50deg);
+		transform: translate(50vh, -50px) rotate3d(1, -1, 0, 50deg);
 		opacity: 1;
 	}
 }
