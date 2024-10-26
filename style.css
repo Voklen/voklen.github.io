@@ -1,6 +1,7 @@
 :root {
 	--main-background: #222225;
 	--text-high: #dad7d6;
+	--muted: #c2bebc;
 }
 
 html,
@@ -58,6 +59,20 @@ main h1 {
 	to {
 		transform: translateY(0);
 	}
+}
+
+footer {
+	/* Positioning */
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 4px;
+	/* Visuals */
+	font-family: monospace;
+	font-size: 1rem;
+	color: var(--muted);
+	border: var(--muted) 1px solid;
+	background-color: var(--main-background);
 }
 
 .spots {
