@@ -5,28 +5,24 @@
 
 html,
 body {
+	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 
 body {
 	/* Positioning */
 	margin: 0;
 	padding: 0;
+	position: relative;
 	/* Visuals */
 	background-color: var(--main-background);
 	color: var(--text-high);
 }
 
-main {
-	width: 100%;
-	min-height: 100%;
-	display: grid;
-	grid-columns: 1fr 5fr;
-}
-
 /* Specific to certain sections */
 
-#main-name-div {
+main {
 	position: absolute;
 	top: 30%;
 	right: 10%;
@@ -40,7 +36,7 @@ main {
 	border: 1px solid rgba(133, 159, 202, 0.2);
 }
 
-#main-name-div h1 {
+main h1 {
 	font-size: 300%;
 	-webkit-animation: fadein 2s;
 	animation: fadein 2s;
@@ -60,15 +56,15 @@ main {
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: 0;
-	width: 100vh;
+	width: 150vh;
+	height: 150vh;
 	background-image: url('media/images/circle.svg');
 	background-repeat: repeat;
-	background-size: 10%;
-	transform: rotate3d(1,-1,0,50deg);
+	background-size: 7%;
+	transform: rotate3d(1,-1,0,50deg) translate(50vh, -10px);
 }
 
 #blue-spots {
-	translate: -10px -5px;
+	translate: -6px -3px;
 	filter: hue-rotate(180deg);
 }
