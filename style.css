@@ -43,13 +43,21 @@ main h1 {
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .spots {
@@ -61,7 +69,7 @@ main h1 {
 	background-image: url('media/images/circle.svg');
 	background-repeat: repeat;
 	background-size: 7%;
-	transform: rotate3d(1,-1,0,50deg) translate(50vh, -10px);
+	transform: rotate3d(1, -1, 0, 50deg) translate(50vh, -10px);
 }
 
 #blue-spots {
