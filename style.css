@@ -34,11 +34,11 @@ main {
 	backdrop-filter: blur(6.3px);
 	-webkit-backdrop-filter: blur(6.3px);
 	border: 1px solid rgba(133, 159, 202, 0.2);
+	animation: dropin 2s;
 }
 
 main h1 {
 	font-size: 300%;
-	-webkit-animation: fadein 2s;
 	animation: fadein 2s;
 }
 
@@ -51,12 +51,12 @@ main h1 {
 	}
 }
 
-@-webkit-keyframes fadein {
+@keyframes dropin {
 	from {
-		opacity: 0;
+		transform: translateY(-50px);
 	}
 	to {
-		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
@@ -69,7 +69,19 @@ main h1 {
 	background-image: url('media/images/circle.svg');
 	background-repeat: repeat;
 	background-size: 7%;
-	transform: rotate3d(1, -1, 0, 50deg) translate(50vh, -10px);
+	transform: translate(50vh, -10px) rotate3d(1, -1, 0, 50deg);
+	animation: rotatein 2s;
+}
+
+@keyframes rotatein {
+	from {
+		transform: translate(50vh, -10px);
+		opacity: 0;
+	}
+	to {
+		transform: translate(50vh, -10px) rotate3d(1, -1, 0, 50deg);
+		opacity: 1;
+	}
 }
 
 #blue-spots {
