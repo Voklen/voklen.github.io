@@ -13,14 +13,12 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 }
 
 body {
 	/* Positioning */
 	margin: 0;
 	padding: 0;
-	position: relative;
 	/* Visuals */
 	background-color: var(--main-background);
 	color: var(--text-high);
@@ -38,7 +36,7 @@ main {
 	top: 30%;
 	right: 10%;
 	padding: 20px;
-	width: 60ch;
+	width: min(60ch, 50vw);
 	/* From https://css.glass */
 	background: rgba(133, 159, 202, 0.12);
 	border-radius: 16px;
@@ -83,16 +81,20 @@ main a {
 	bottom: 0;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 }
 
 nav {
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
 }
 
 nav a {
-	padding: 20px;
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
 	font-size: 2em;
 	text-decoration: none;
 	color: var(--text-high);
@@ -114,6 +116,14 @@ footer {
 	color: var(--muted);
 	border: var(--muted) 1px solid;
 	background-color: var(--main-background);
+}
+
+#spots-container {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	border: var(--muted) 1px solid;
 }
 
 .spots {
@@ -143,4 +153,34 @@ footer {
 #blue-spots {
 	translate: -6px -3px;
 	filter: hue-rotate(180deg);
+}
+
+@media (max-width: 868px) {
+	main {
+		width: auto;
+		top: 5%;
+		right: 10%;
+		left: 10%;
+	}
+
+	main h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	main p {
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+
+	#spots-container {
+		height: 40%;
+	}
+
+	#sidebar {
+		left: 20px;
+		right: 20px;
+		top: 40%;
+		bottom: 2em;
+	}
 }
