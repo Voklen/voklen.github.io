@@ -118,12 +118,14 @@ footer {
 	background-color: var(--main-background);
 }
 
-#spots-container {
+#mobile-top-container {
 	position: relative;
 	overflow: hidden;
 	height: 100%;
 	width: 100%;
-	border: var(--muted) 1px solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .spots {
@@ -158,9 +160,9 @@ footer {
 @media (max-width: 868px) {
 	main {
 		width: auto;
-		top: 5%;
-		right: 10%;
-		left: 10%;
+		position: static;
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 
 	main h1 {
@@ -173,8 +175,9 @@ footer {
 		margin-bottom: 0;
 	}
 
-	#spots-container {
+	#mobile-top-container {
 		height: 40%;
+		border: var(--muted) 1px solid;
 	}
 
 	#sidebar {
@@ -182,5 +185,22 @@ footer {
 		right: 20px;
 		top: 40%;
 		bottom: 2em;
+	}
+}
+
+@media (max-width: 430px) {
+	main {
+		/* Fill up entire top part and position content with flexbox */
+		margin: 0;
+		height: 100%;
+		width: 100%;
+		animation: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+
+	#mobile-top-container {
+		border: none;
 	}
 }
