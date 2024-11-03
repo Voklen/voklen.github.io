@@ -74,34 +74,11 @@ main a {
 	color: var(--text-high);
 }
 
-#sidebar {
+nav-bar {
 	position: absolute;
 	left: 10%;
 	top: 20vh;
 	bottom: 20vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-nav {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
-nav a {
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-	font-size: 2em;
-	text-decoration: none;
-	color: var(--text-high);
-}
-
-nav a img {
-	margin-right: 20px;
 }
 
 footer {
@@ -180,7 +157,7 @@ footer {
 		border: var(--muted) 1px solid;
 	}
 
-	#sidebar {
+	nav-bar {
 		left: 20px;
 		right: 20px;
 		top: 40%;
