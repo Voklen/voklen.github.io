@@ -135,6 +135,11 @@ footer {
 }
 
 @media (max-width: 868px) {
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+
 	main {
 		width: auto;
 		position: static;
@@ -154,14 +159,21 @@ footer {
 
 	#mobile-top-container {
 		height: 40%;
-		border: var(--muted) 1px solid;
+		border-bottom: var(--muted) 1px solid;
 	}
 
 	nav-bar {
-		left: 20px;
-		right: 20px;
-		top: 40%;
-		bottom: 2em;
+		position: static;
+		flex-grow: 1;
+	}
+
+	footer {
+		position: static;
+		/* Make it look natural on phones with cured screens */
+		padding-top: 12px;
+		padding-bottom: 14px;
+		border-width: 0px;
+		border-top-width: 1px;
 	}
 }
 
