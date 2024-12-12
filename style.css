@@ -7,6 +7,7 @@
 	--main-background: #222225;
 	--text-high: #dad7d6;
 	--muted: #c2bebc;
+	--initial-animation-duration: 1s;
 }
 
 html,
@@ -44,7 +45,7 @@ main {
 	backdrop-filter: blur(6.3px);
 	-webkit-backdrop-filter: blur(6.3px);
 	border: 1px solid rgba(133, 159, 202, 0.2);
-	animation: dropin 2s;
+	animation: dropin var(--initial-animation-duration);
 }
 
 @keyframes dropin {
@@ -58,7 +59,7 @@ main {
 
 main h1 {
 	font-size: 300%;
-	animation: fadein 2s;
+	animation: fadein var(--initial-animation-duration);
 }
 
 @keyframes fadein {
@@ -115,7 +116,7 @@ footer {
 	background-repeat: repeat;
 	background-size: 7%;
 	transform: translate(50vh, -50px) rotate3d(1, -1, 0, 50deg);
-	animation: rotatein 2s;
+	animation: rotatein var(--initial-animation-duration);
 }
 
 @keyframes rotatein {
