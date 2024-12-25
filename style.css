@@ -1,36 +1,6 @@
-@font-face {
-	font-family: 'Jostvf';
-	src: url('assets/fonts/Jost-VF.ttf') format('truetype');
-}
-
 :root {
-	--main-background: #222225;
-	--text-high: #dad7d6;
-	--muted: #c2bebc;
 	--initial-animation-duration: 1s;
 }
-
-html,
-body {
-	width: 100%;
-	height: 100%;
-}
-
-body {
-	/* Positioning */
-	margin: 0;
-	padding: 0;
-	/* Visuals */
-	background-color: var(--main-background);
-	color: var(--text-high);
-	font-family: Jostvf;
-}
-
-p {
-	font-size: 1.5em;
-}
-
-/* Specific to certain sections */
 
 main {
 	position: absolute;
@@ -73,13 +43,6 @@ main h1 {
 
 main a {
 	color: var(--text-high);
-}
-
-nav-bar {
-	position: absolute;
-	left: 10%;
-	top: 20vh;
-	bottom: 20vh;
 }
 
 footer {
@@ -170,7 +133,7 @@ footer {
 
 	footer {
 		position: static;
-		/* Make it look natural on phones with cured screens */
+		/* Make it look natural on phones with curved screens */
 		padding-top: 12px;
 		padding-bottom: 14px;
 		border-width: 0px;
