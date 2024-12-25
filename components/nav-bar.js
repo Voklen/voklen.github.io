@@ -8,49 +8,41 @@ class Navbar extends HTMLElement {
 
 	render() {
 		this.shadow.innerHTML = `
-			<div id="sidebar">
-				<nav>
-					<a href="/">
-						<img src="/assets/icons/coffee.svg" />
-						Home
-					</a>
-					<a href="/wip/">
-						<img src="/assets/icons/database.svg" />
-						Projects
-					</a>
-					<a href="/wip/">
-						<img src="/assets/icons/code.svg" />
-						Tech
-					</a>
-					<a href="/wip/">
-						<img src="/assets/icons/book-open.svg" />
-						Blog
-					</a>
-					<a href="/wip/">
-						<img src="/assets/icons/pen-tool.svg" />
-						Contact
-					</a>
-				</nav>
-			</div>
+			<nav>
+				<a href="/">
+					<img src="/assets/icons/coffee.svg" />
+					Home
+				</a>
+				<a href="/projects/">
+					<img src="/assets/icons/database.svg" />
+					Projects
+				</a>
+				<a href="/wip/">
+					<img src="/assets/icons/code.svg" />
+					Tech
+				</a>
+				<a href="/wip/">
+					<img src="/assets/icons/book-open.svg" />
+					Blog
+				</a>
+				<a href="/wip/">
+					<img src="/assets/icons/pen-tool.svg" />
+					Contact
+				</a>
+			</nav>
 		`;
 
 		// Create some CSS to apply to the shadow dom
 		const style = document.createElement("style");
 
 		style.textContent = `
-			#sidebar {
+			nav {
 				height: 100%;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: start;
 				justify-content: center;
-			}
-			
-			nav {
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
 			}
 			
 			nav a {
