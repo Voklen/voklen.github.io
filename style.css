@@ -2,10 +2,10 @@
 	--initial-animation-duration: 1s;
 }
 
-main {
+#hero-card {
 	position: absolute;
 	top: 30%;
-	right: 10%;
+	right: 20%;
 	padding: 20px;
 	width: min(60ch, 50vw);
 	/* From https://css.glass */
@@ -27,7 +27,7 @@ main {
 	}
 }
 
-main h1 {
+#hero-card h1 {
 	font-size: 300%;
 	animation: fadein var(--initial-animation-duration);
 }
@@ -41,7 +41,7 @@ main h1 {
 	}
 }
 
-main a {
+#hero-card a {
 	color: var(--text-high);
 }
 
@@ -59,11 +59,9 @@ footer {
 	background-color: var(--main-background);
 }
 
-#mobile-top-container {
+main {
 	position: relative;
 	overflow: hidden;
-	height: 100%;
-	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -78,17 +76,17 @@ footer {
 	background-image: url('assets/images/circle.svg');
 	background-repeat: repeat;
 	background-size: 7%;
-	transform: translate(50vh, -50px) rotate3d(1, -1, 0, 50deg);
+	transform: translate(40vh, -50px) rotate3d(1, -1, 0, 50deg);
 	animation: rotatein var(--initial-animation-duration);
 }
 
 @keyframes rotatein {
 	from {
-		transform: translate(50vh, -50px);
+		transform: translate(40vh, -50px);
 		opacity: 0;
 	}
 	to {
-		transform: translate(50vh, -50px) rotate3d(1, -1, 0, 50deg);
+		transform: translate(40vh, -50px) rotate3d(1, -1, 0, 50deg);
 		opacity: 1;
 	}
 }
@@ -104,24 +102,24 @@ footer {
 		flex-direction: column;
 	}
 
-	main {
+	#hero-card {
 		width: auto;
 		position: static;
 		margin-left: 10%;
 		margin-right: 10%;
 	}
 
-	main h1 {
+	#hero-card h1 {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	main p {
+	#hero-card p {
 		margin-top: 5px;
 		margin-bottom: 0;
 	}
 
-	#mobile-top-container {
+	main {
 		height: 40%;
 		border-bottom: var(--muted) 1px solid;
 	}
@@ -129,6 +127,7 @@ footer {
 	nav-bar {
 		position: static;
 		flex-grow: 1;
+		margin: 0;
 	}
 
 	footer {
@@ -142,7 +141,7 @@ footer {
 }
 
 @media (max-width: 430px) {
-	main {
+	#hero-card {
 		/* Fill up entire top part and position content with flexbox */
 		margin: 0;
 		height: 100%;
@@ -153,7 +152,7 @@ footer {
 		justify-content: space-evenly;
 	}
 
-	#mobile-top-container {
+	main {
 		border: none;
 	}
 }

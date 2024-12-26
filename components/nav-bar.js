@@ -38,7 +38,6 @@ class Navbar extends HTMLElement {
 		style.textContent = `
 			nav {
 				height: 100%;
-				width: 100%;
 				display: flex;
 				flex-direction: column;
 				align-items: start;

@@ -19,19 +19,26 @@ body {
 	/* Positioning */
 	margin: 0;
 	padding: 0;
+	display: grid;
+	grid-template-columns: 2fr 5fr;
+	grid-template-areas: 'sidebar main';
 	/* Visuals */
 	background-color: var(--main-background);
 	color: var(--text-high);
 	font-family: Jostvf;
 }
 
-p {
-	font-size: 1.5em;
+main {
+	grid-area: main;
 }
 
 nav-bar {
-	position: absolute;
-	left: 10%;
-	top: 20vh;
-	bottom: 20vh;
+	grid-area: sidebar;
+	display: flex;
+	justify-content: center;
+	margin: 20vh 50px;
+}
+
+p {
+	font-size: 1.5em;
 }
