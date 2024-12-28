@@ -6,8 +6,68 @@
 :root {
 	--main-background: #222225;
 	--text-high: #dad7d6;
+	--link-text: #cac9da;
 	--muted: #c2bebc;
 }
+
+/*
+	=== CSS Resets ===
+	Insipired by https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/*
+	2. Remove default margin
+	7. Avoid text overflows
+*/
+* {
+	margin: 0;
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+/*
+	Typographic tweaks!
+	3. Add accessible line-height
+	4. Improve text rendering
+*/
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+/*
+	6. Remove built-in form typography styles
+	Word and letter spacing from https://adrianroselli.com/2019/09/under-engineered-text-boxen.html
+*/
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+/* 8. Improve line wrapping */
+p {
+	text-wrap: pretty;
+}
+
+/*
+	=== CSS Globals ===
+*/
 
 html,
 body {
@@ -39,6 +99,19 @@ nav-bar {
 	margin: 20vh 50px;
 }
 
-p {
-	font-size: 1.5em;
+a {
+	color: var(--link-text);
+	font-style: italic;
+	white-space: nowrap;
+}
+
+a[href^='http']::after {
+	content: '';
+	display: inline-block;
+	width: 0.8em;
+	height: 0.8em;
+	margin-left: 0.25em;
+
+	background-size: 100%;
+	background-image: url('/assets/icons/external-link.svg');
 }

@@ -41,8 +41,8 @@
 	}
 }
 
-#hero-card a {
-	color: var(--text-high);
+#hero-card p {
+	font-size: 1.5em;
 }
 
 footer {
