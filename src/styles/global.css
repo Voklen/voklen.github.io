@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'Jostvf';
-	src: url('assets/fonts/Jost-VF.ttf') format('truetype');
+	src: url('/assets/fonts/Jost-VF.ttf') format('truetype');
 }
 
 :root {
@@ -92,13 +92,6 @@ main {
 	grid-area: main;
 }
 
-nav-bar {
-	grid-area: sidebar;
-	display: flex;
-	justify-content: center;
-	margin: 20vh 50px;
-}
-
 a {
 	color: var(--link-text);
 	font-style: italic;
@@ -113,5 +106,5 @@ a[href^='http']::after {
 	margin-left: 0.25em;
 
 	background-size: 100%;
-	background-image: url('/assets/icons/external-link.svg');
+	background-image: url('/assets/images/external-link.svg');
 }

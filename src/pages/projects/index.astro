@@ -1,14 +1,24 @@
-<!doctype html>
+---
+import '../../styles/global.css'
+import './style.css'
+import Navbar from '../../components/Navbar.astro'
+import dialyDiaryIcon from './assets/projects/daily-diary/icon.png'
+import dailyDiaryShakespeare from "./assets/projects/daily-diary/phoneScreenshots/Shakespeare's diary.png"
+import dailyDiarySettings from './assets/projects/daily-diary/phoneScreenshots/Settings.png'
+import mitrella from './assets/projects/mitrella/mitrella.png'
+import pythonQuine from './assets/projects/python-quine/source.png'
+import moleculeSimStart from './assets/projects/covalent-molecule-simulation/sim-start.png'
+import moleculeSimEnd from './assets/projects/covalent-molecule-simulation/sim-end.png'
+import bearings from './assets/projects/bearings/source.png'
+import haggisInterpreter from './assets/projects/haggis-interpreter/haggis-example.png'
+---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Alex Gorichev</title>
-		<link rel="stylesheet" href="/global.css" />
-		<link rel="stylesheet" href="style.css" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script defer src="script.js"></script>
-		<script defer src="/components/nav-bar.js"></script>
 	</head>
 
 	<body>
@@ -16,13 +26,9 @@
 			<div id="projects-grid">
 				<div class="card">
 					<figure>
-						<img src="/assets/images/projects/daily-diary/icon.png" />
-						<img
-							src="/assets/images/projects/daily-diary/phoneScreenshots/Shakespeare's diary.png"
-						/>
-						<img
-							src="/assets/images/projects/daily-diary/phoneScreenshots/Settings.png"
-						/>
+						<img src={dialyDiaryIcon.src} />
+						<img src={dailyDiaryShakespeare.src} />
+						<img src={dailyDiarySettings.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Daily-Diary">Daily Diary</a>
 					<p>
@@ -32,7 +38,7 @@
 				</div>
 				<div class="card">
 					<figure>
-						<img src="/assets/images/projects/mitrella/mitrella.png" />
+						<img src={mitrella.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Mitrella">Mitrella</a>
 					<p>
@@ -42,19 +48,15 @@
 				</div>
 				<div class="card">
 					<figure>
-						<img src="/assets/images/projects/python-quine/source.png" />
+						<img src={pythonQuine.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Output-Source">Python Quine</a>
 					<p>A Python program that prints out it's own source code.</p>
 				</div>
 				<div class="card">
 					<figure>
-						<img
-							src="/assets/images/projects/covalent-molecule-simulation/sim-start.png"
-						/>
-						<img
-							src="/assets/images/projects/covalent-molecule-simulation/sim-end.png"
-						/>
+						<img src={moleculeSimStart.src} />
+						<img src={moleculeSimEnd.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Covalent-Molecule-Simulation"
 						>Covalent Bond Simulation</a
@@ -66,7 +68,7 @@
 				</div>
 				<div class="card">
 					<figure>
-						<img src="/assets/images/projects/bearings/source.png" />
+						<img src={bearings.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Covalent-Molecule-Simulation"
 						>Bearings</a
@@ -78,9 +80,7 @@
 				</div>
 				<div class="card">
 					<figure>
-						<img
-							src="/assets/images/projects/haggis-interpreter/haggis-example.png"
-						/>
+						<img src={haggisInterpreter.src} />
 					</figure>
 					<a href="https://github.com/Voklen/Haggis-Interpreter"
 						>Haggis Interpreter</a
@@ -92,6 +92,6 @@
 				</div>
 			</div>
 		</main>
-		<nav-bar></nav-bar>
+		<Navbar />
 	</body>
 </html>

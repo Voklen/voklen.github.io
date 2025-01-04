@@ -1,0 +1,62 @@
+---
+import coffee from '../icons/coffee.svg'
+import database from '../icons/database.svg'
+import code from '../icons/code.svg'
+import bookOpen from '../icons/book-open.svg'
+import penTool from '../icons/pen-tool.svg'
+---
+
+<style>
+	#sidebar {
+		grid-area: sidebar;
+		display: flex;
+		justify-content: center;
+		margin: 20vh 50px;
+	}
+
+	nav {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+	}
+
+	nav a {
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+		font-size: 2em;
+		text-decoration: none;
+		color: var(--text-high);
+		font-style: normal; /* Stop the global italic links */
+	}
+
+	nav a img {
+		margin-right: 20px;
+	}
+</style>
+<div id="sidebar">
+	<nav>
+		<a href="/">
+			<img src={coffee.src} />
+			Home
+		</a>
+		<a href="/projects/">
+			<img src={database.src} />
+			Projects
+		</a>
+		<a href="/wip/">
+			<img src={code.src} />
+			Tech
+		</a>
+		<a href="/wip/">
+			<img src={bookOpen.src} />
+			Blog
+		</a>
+		<a href="/wip/">
+			<img src={penTool.src} />
+			Contact
+		</a>
+	</nav>
+</div>

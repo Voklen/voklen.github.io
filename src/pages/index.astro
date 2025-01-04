@@ -1,14 +1,18 @@
-<!doctype html>
+---
+import '../styles/global.css'
+import './style.css'
+import Navbar from '../components/Navbar.astro'
+---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Alex Gorichev</title>
-		<link rel="stylesheet" href="/global.css" />
-		<link rel="stylesheet" href="style.css" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script defer src="script.js"></script>
-		<script defer src="/components/nav-bar.js"></script>
+		<script>
+			import './script.js'
+		</script>
 	</head>
 
 	<body>
@@ -24,7 +28,7 @@
 				</p>
 			</div>
 		</main>
-		<nav-bar></nav-bar>
+		<Navbar />
 		<footer></footer>
 	</body>
 </html>
