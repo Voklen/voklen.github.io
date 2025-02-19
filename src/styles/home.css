@@ -30,7 +30,7 @@ main {
 	right: 0;
 	width: 150vh;
 	height: 150vh;
-	background-image: url('assets/images/circle.svg');
+	background-image: url('../assets/images/circle.svg');
 	background-repeat: repeat;
 	background-size: 7%;
 	transform: translate(40vh, -50px) rotate3d(1, -1, 0, 50deg);
