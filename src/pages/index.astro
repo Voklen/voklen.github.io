@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import './style.css'
 import Navbar from '../components/Navbar.astro'
+import HeroSection from '../components/HeroSection.astro'
 ---
 
 <!doctype html>
@@ -19,14 +20,7 @@ import Navbar from '../components/Navbar.astro'
 		<main>
 			<div class="spots"></div>
 			<div id="blue-spots" class="spots"></div>
-			<div id="hero-card">
-				<h1>Alex Gorichev</h1>
-				<p>
-					I&#x2019;m a full-stack developer, I love programming and I am
-					currently a student at the
-					<a href="https://www.st-andrews.ac.uk/">University of St Andrews</a>
-				</p>
-			</div>
+			<HeroSection />
 		</main>
 		<Navbar />
 		<footer></footer>

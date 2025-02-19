@@ -2,49 +2,6 @@
 	--initial-animation-duration: 1s;
 }
 
-#hero-card {
-	position: absolute;
-	top: 30%;
-	right: 20%;
-	padding: 20px;
-	width: min(60ch, 50vw);
-	/* From https://css.glass */
-	background: rgba(133, 159, 202, 0.12);
-	border-radius: 16px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(6.3px);
-	-webkit-backdrop-filter: blur(6.3px);
-	border: 1px solid rgba(133, 159, 202, 0.2);
-	animation: dropin var(--initial-animation-duration);
-}
-
-@keyframes dropin {
-	from {
-		transform: translateY(-50px);
-	}
-	to {
-		transform: translateY(0);
-	}
-}
-
-#hero-card h1 {
-	font-size: 300%;
-	animation: fadein var(--initial-animation-duration);
-}
-
-@keyframes fadein {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
-#hero-card p {
-	font-size: 1.5em;
-}
-
 footer {
 	/* Positioning */
 	position: absolute;
