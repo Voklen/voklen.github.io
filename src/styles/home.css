@@ -53,6 +53,10 @@ main {
 	filter: hue-rotate(180deg);
 }
 
+#mastodon-link {
+	display: none;
+}
+
 @media (max-width: 868px) {
 	body {
 		display: flex;
