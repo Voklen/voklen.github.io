@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.2",
+    "astro": "^5.14.3",
     "prettier-plugin-astro": "^0.14.1"
   }
 }
