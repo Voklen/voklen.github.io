@@ -5,30 +5,14 @@ import Navbar from '../components/Navbar.astro'
 import HeroSection from '../components/HeroSection.astro'
 ---
 
-<script>
-	function currentTimeInTZ(tzString: string) {
-		const currentTime = new Date()
-		return currentTime.toLocaleString('en-GB', {
-			timeZone: tzString,
-			timeStyle: 'long',
-		})
-	}
-
-	function setFooterText() {
-		const footer = document.getElementsByTagName('footer')[0]
-		const currentTime = currentTimeInTZ('Europe/London')
-		footer.innerHTML = `Location: Scotland | Local time: ${currentTime}`
-	}
-
-	setFooterText()
-	setInterval(setFooterText, 1000)
-</script>
-
 <html lang="en">
 	<head>
 		<title>Alex Gorichev</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+			import '../scripts/localTime.ts'
+		</script>
 	</head>
 
 	<body>
