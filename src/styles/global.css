@@ -6,7 +6,7 @@
 :root {
 	--main-background: #222225;
 	--text-high: #dad7d6;
-	--link-text: #cac9da;
+	--link-text: #c4c2e1;
 	--muted: #c2bebc;
 }
 
@@ -28,7 +28,6 @@
 * {
 	margin: 0;
 	overflow-wrap: break-word;
-	hyphens: auto;
 }
 /*
 	Typographic tweaks!

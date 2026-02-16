@@ -1,0 +1,63 @@
+---
+import '../styles/global.css'
+import Navbar from '../components/Navbar.astro'
+import Tag from '../components/Tag.astro'
+const { frontmatter } = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<title>{frontmatter.title}</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			main {
+				font-size: 1.2em;
+				margin: 10vh auto;
+				margin-bottom: 30vh;
+				width: 70ch;
+				* {
+					margin: revert;
+				}
+			}
+
+			header * {
+				margin: 10px 0px;
+			}
+
+			#tags {
+				display: flex;
+				gap: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<header>
+				<h1>{frontmatter.title}</h1>
+				<div id="tags">
+					{frontmatter.tags.map((tag: String) => <Tag>{tag}</Tag>)}
+				</div>
+				<p>{frontmatter.date.slice(0, 10)}</p>
+			</header>
+			<slot />
+			<hr />
+			<p>
+				If you have any questions or comments about this post, feel free to tag
+				me on
+				<a
+					id="mastodon-link"
+					rel="external"
+					href="https://social.voklen.com/@alex"
+				>
+					Mastodon
+				</a>
+				or send me an Email at
+				<a rel="external" href="mailto:alex@voklen.com">alex@voklen.com</a>.
+			</p>
+		</main>
+		<Navbar />
+		<footer></footer>
+	</body>
+</html>
