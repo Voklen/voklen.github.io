@@ -1,0 +1,59 @@
+---
+import '../../styles/global.css'
+import Navbar from '../../components/Navbar.astro'
+import ExpandableImage from '../../components/ExpandableImage.astro'
+function comareStrings(a: string, b: string) {
+	if (a > b) return -1
+	if (a < b) return 1
+	return 0
+}
+const photos = Object.values(
+	import.meta.glob('./../../assets/images/photos/*', { eager: true }),
+).toSorted((a, b) => comareStrings(a.default.src, b.default.src))
+---
+
+<html lang="en">
+	<head>
+		<title>{'Alex Gorichev — Blog'}</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			main {
+				font-size: 1.2em;
+				margin: 10vh 10px;
+				margin-bottom: 30vh;
+			}
+
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, 300px);
+				gap: 8px;
+				justify-content: center;
+				grid-template-rows: masonry;
+			}
+
+			.photo {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<h1>Gallery</h1>
+			<div class="gallery">
+				{
+					photos.map((photo: any) => (
+						<div class="photo">
+							<ExpandableImage src={photo.default.src} />
+						</div>
+					))
+				}
+			</div>
+		</main>
+		<Navbar />
+		<footer></footer>
+	</body>
+</html>
