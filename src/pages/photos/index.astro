@@ -26,7 +26,7 @@ const photos = Object.values(
 
 			.gallery {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, 300px);
+				grid-template-columns: repeat(auto-fill, 280px);
 				gap: 8px;
 				justify-content: center;
 				grid-template-rows: masonry;
@@ -47,7 +47,7 @@ const photos = Object.values(
 				{
 					photos.map((photo: any) => (
 						<div class="photo">
-							<ExpandableImage src={photo.default.src} />
+							<ExpandableImage image={photo.default} />
 						</div>
 					))
 				}

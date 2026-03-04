@@ -1,5 +1,6 @@
 ---
-const { src } = Astro.props
+const { image } = Astro.props
+import { Image } from 'astro:assets'
 ---
 
 <style>
@@ -52,13 +53,14 @@ const { src } = Astro.props
 	})
 </script>
 
-<button command="show-modal" commandfor={`${src}-dialog`}>
-	<img src={src} />
+{//TODO Extract description from image}
+<button command="show-modal" commandfor={`${image.src}-dialog`}>
+	<Image src={image} alt="Photo"/>
 </button>
-<dialog id={`${src}-dialog`}>
+<dialog id={`${image.src}-dialog`}>
 	<div>
-		<img src={src} />
-		<button id="close-button" commandfor={`${src}-dialog`} command="close">
+		<img src={image.src} alt="Photo"/>
+		<button id="close-button" commandfor={`${image.src}-dialog`} command="close">
 			Close
 		</button>
 	</div>
