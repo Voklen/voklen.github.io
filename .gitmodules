@@ -1,0 +1,3 @@
+[submodule "public/laseggio"]
+	path = public/laseggio
+	url = https://github.com/Voklen/laseggio.git
